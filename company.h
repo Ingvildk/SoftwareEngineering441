@@ -15,7 +15,7 @@ class Company {
         Company(const char*, const char*);
         ~Company();
         char *getName() { return name; }
-        char *getAddress() { return address }
+        char *getAddress() { return address; }
         void addStore(const char*, const char*, int);
         void removeStore(const char*);
         void changeStore(const char*, const char*, int);
