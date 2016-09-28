@@ -18,7 +18,7 @@ class Store {
         ~Store();
         Inventory *getInventory() { return inventory; }
         char *getName() { return name; }
-        char *getAddress() { return address }
+        char *getAddress() { return address; }
         int getId() { return id; }
         void addEmployee(const char*, const char*, const char*, double, int);
         void removeEmployee(const char*, char);
