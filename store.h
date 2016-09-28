@@ -25,9 +25,9 @@ class Store {
         void changeEmployee(const char*, const char*, double);
         void displayEmployee(const char*, char);
         void displayEmployees();
-        void setName(const char* n) { name = new char[strlen(n) + 1]; }
-        void setAddress(const char* a) { address = new char[strlen(a) + 1]; }
-        void setId(int i) { id = i }
+        void setName(const char*);
+        void setAddress(const char*);
+        void setId(int i) { id = i; }
 };
 
 #endif

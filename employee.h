@@ -22,10 +22,10 @@ class Employee {
         double getHours() { return hours; }
         double getSalary() { return salary; }
         int getDob() { return dob; }
-        void setAddress(const char* a) { address = new char[strlen(a) + 1]; }
-        void setJob(const char* j) { jobTitle = new char[strlen(j) + 1]; }
-        void setUser(const char* u) { jobTitle = new char[strlen(u) + 1]; }
-        void setPass(const char* p) { jobTitle = new char[strlen(p) + 1]; }
+        void setAddress(const char*);
+        void setJob(const char*);
+        void setUser(const char*);
+        void setPass(const char*);
         void setHours(double h) { hours = h; }
         void setSalary(double s) { salary = s; }
         void display();

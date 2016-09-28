@@ -1,6 +1,7 @@
 #include "employee.h"
 #include <iostream>
-using namespace std;
+#include <cstring>
+#include <iostream>
 
 Employee::Employee(const char* Name, const char* Address, const char* Job, double Hours, int Dob) {
 	name = Name;
