@@ -3,29 +3,29 @@
 
 class Employee {
     private:
-        char *name;     //name of employee
-        char *address;  //current address of employee
-        char *jobTitle; //job title of the employee
-        char *username; //log-in username
-        char *password; //log-in password
+        string name;     //name of employee
+        string address;  //current address of employee
+        string jobTitle; //job title of the employee
+        string username; //log-in username
+        string password; //log-in password
         double hours;   //amount of hours worked in a day
         double salary;  //hourly salary of an employee
         int dob;        //date of birth
     public:
-        Employee(const char*, const char*, const char*, double, int);
+        Employee(const string, const string, const string, double, int);
         ~Employee();
-        char *getName() { return name; }
-        char *getAddress() { return address; }
-        char *getJob() { return jobTitle; }
-        char *getUser() { return username; }
-        char *getPass() { return password; }
+        string getName() { return name; }
+        string getAddress() { return address; }
+        string getJob() { return jobTitle; }
+        string getUser() { return username; }
+        string getPass() { return password; }
         double getHours() { return hours; }
         double getSalary() { return salary; }
         int getDob() { return dob; }
-        void setAddress(const char*);
-        void setJob(const char*);
-        void setUser(const char*);
-        void setPass(const char*);
+        void setAddress(const string);
+        void setJob(const string);
+        void setUser(const string);
+        void setPass(const string);
         void setHours(double h) { hours = h; }
         void setSalary(double s) { salary = s; }
         void display();
