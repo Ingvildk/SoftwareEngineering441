@@ -1,9 +1,8 @@
 #include "employee.h"
 #include <iostream>
 #include <cstring>
-#include <iostream>
 
-Employee::Employee(const char* Name, const char* Address, const char* Job, double Hours, int Dob) {
+Employee::Employee(const string Name, const string Address, const string Job, double Hours, int Dob) {
 	name = Name;
 	address = Address;
 	job = Job;
