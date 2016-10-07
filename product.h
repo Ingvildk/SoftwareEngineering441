@@ -1,31 +1,35 @@
 #ifndef _PRODUCT_H
 #define _PRODUCT_H
 
+#include <string.h>
+
 class Product {
     private:
-        char *name;     //name of the product
-        char *brand;    //brand of the product
-        char *dept;     //department the product is in
+        std::string name;     //name of the product
+        string brand;    //brand of the product
+        string dept;     //department the product is in
         int quantity;   //quantity of the product
         int msrp;       //retail price of the product
         int price;      //price of product (msrp - discount)
-        int discount;   //discount of the product
         bool isDamaged; //true if product is damaged
     public:
-        Product(const char*, const char*, const char*, int, int);
+        Product();
         ~Product();
-        char *getName() { return name; }
-        char *getBrand() { return brand; }
-        char *getDept() { return dept; }
-        int getQuantity() { return quantity; }
-        int getMsrp() { return msrp; }
-        int getPrice() { return price; }
-        int getDiscount() { return discount; }
-        bool getDamage() { return isDamaged; }
-        void setQuantity(int q) { quantity = q; }
-        void setMsrp(int m) { msrp = m; }
-        void setDiscount(int d) { discount = d; }
-        void setDamage(bool b) { isDamaged = b; }
+        void setName(string Name);
+        void setBrand(string Brand);
+        void setDept(string Dept);
+        void setQuantity(int q);
+        void setMsrp(int m);
+        void setPrice(int p);
+        void setDamage(bool b);
+        bool getDamage();
+        string getName();
+        string getBrand();
+        string getDept();
+        int getQuantity();
+        int getMsrp();
+        int getPrice();
+        int getDiscount();
         void display();
 };
 
