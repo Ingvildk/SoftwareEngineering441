@@ -18,6 +18,7 @@ private:
 	bool isDamaged; //true if product is damaged
 public:
 	Product();
+	Product(int id, string Name, string Brand, string Dept, int q, double m, double p);
 	~Product();
 	void setID(int id);
 	void setName(string Name);

@@ -16,6 +16,16 @@ Product::Product() {
 	isDamaged = false;          // assuming there is nothing damaged
 }
 
+Product::Product(int id, string Name, string Brand, string Dept, int q, double m, double p){
+    ID = id;
+    name = Name;
+    brand = Brand;
+    dept = Dept;
+    quantity = q;
+    msrp = m;
+    price = p;
+}
+
 
 Product::~Product() {
 
