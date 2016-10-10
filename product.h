@@ -1,6 +1,6 @@
 #ifndef _PRODUCT_H
 #define _PRODUCT_H
-
+using namespace std;
 class Product {
     private:
         char *name;     //name of the product

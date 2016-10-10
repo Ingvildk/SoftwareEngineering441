@@ -4,6 +4,7 @@
 #include "employee.h"
 #include "store.h"
 #include <vector>
+using namespace std;
 
 class Company {
     private:
@@ -12,6 +13,7 @@ class Company {
         string name;                         //name of company
         string address;                      //current address of company
         int ID;
+        void searchStore(string Name);
     public:
         Company(string Name, string Address, int Id);
         ~Company();
@@ -28,7 +30,7 @@ class Company {
         void displayEmployee(string, string);
         void displayEmployees();
         void setName(string);
-        void setAddress(cstring);
+        void setAddress(string);
 };
 
 #endif

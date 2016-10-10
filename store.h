@@ -1,21 +1,22 @@
 #ifndef _STORE_H
 #define _STORE_H
-
 #include "employee.h"
 #include "inventory.h"
 #include <vector>
+using namespace std;
 
 class Store {
-    private:
+    protected:
         std::vector<Employee*> employees;   //list of employees
         Inventory *inventory;               //inventory for the store
-        char *name;                         //name of store
+        string name;                         //name of store
         char *address;                      //current address of store
         int id;                             //id of store
         void searchEmployee (const char*, char);
     public:
         Store(const char*, const char*, int);
         ~Store();
+        string NAMESTORE;  
         Inventory *getInventory() { return inventory; }
         char *getName() { return name; }
         char *getAddress() { return address; }
