@@ -6,16 +6,14 @@ using namespace std;
 
 class Inventory {
     private:
-        std::vector<Product*> products;     //list of products
-        void searchProduct(const char*, char);
+        std::vector<Product> products;     //list of products
+        int searchProduct(string, char);
     public:
-        Inventory();
-        ~Inventory();
-        void addProduct (const char*, const char*, int, int);
-        void removeProduct (const char*, char);
-        void displayProduct(const char*, char);
+        void addProduct (string, string, int, int);
+        void removeProduct (string, char);
+        void displayProduct(string, char);
         void displayProducts();
-        void applySale (const char*, int);
+        void applySale (string, int);
 };
 
 #endif
