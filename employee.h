@@ -2,6 +2,9 @@
 #define _EMPLOYEE_H
 #include <string>
 
+#include <string>
+using namespace std;
+
 class Employee {
     private:
         string name;     //name of employee
@@ -14,6 +17,7 @@ class Employee {
         int dob;        //date of birth
     public:
         Employee(const string, const string, const string, double, int);
+
         ~Employee();
         string getName() { return name; }
         string getAddress() { return address; }
@@ -29,6 +33,7 @@ class Employee {
         void setPass(const string);
         void setHours(double h) { hours = h; }
         void setSalary(double s) { salary = s; }
+
         void display();
 };
 

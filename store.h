@@ -4,6 +4,7 @@
 #include "inventory.h"
 #include <string>
 #include <vector>
+using namespace std;
 
 class Store {
     private:
