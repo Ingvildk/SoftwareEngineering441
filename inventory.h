@@ -3,17 +3,19 @@
 
 #include "product.h"
 #include <vector>
+#include <string>
 
 class Inventory {
     private:
         std::vector<Product> products;     //list of products
         int searchProduct(string, char);
+        int searchProduct (int);
     public:
-        void addProduct (string, string, int, int);
-        void removeProduct (string, char);
-        void displayProduct(string, char);
+        void addProduct (int, string, string, string, int, double, double);
+        void removeProduct (int);
+        void displayProduct(int);
         void displayProducts();
-        void applySale (string, int);
+        void applySale (int);
 };
 
 #endif
