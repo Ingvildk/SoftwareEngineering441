@@ -1,4 +1,5 @@
 #include "Product.h"
+using namespace std;
 
 /*
 *   Default Contructor -> intialising int values to ZERO
