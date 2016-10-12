@@ -1,3 +1,4 @@
+#include "inventory.h"
 #include <algorithm>
 #include <iostream>
 
@@ -30,24 +31,46 @@ int Inventory::searchProduct(string s, char c) {
 		return index;
 }
 
-void Inventory::addProduct() {}
+int Inventory::searchProduct(int id) {
+	std::vector<Products>::iterator it;
+	
+	it = std::find(products.begin(), products.end(), [&](const products & p) {
+		p.getID() == id;
+	});
+	
+	int index = it - products.begin(); //calculate the index of the product
+	
+	if (index >= products.size()) //product was not found
+		return -1;
+	else
+		return index;
+}
 
-void Inventory::removeProduct(string s, char c) {
-	int index = searchProduct(s, c);
+void Inventory::addProduct(int id, string name, string brand, string dept, int q, double p) {
+	int index == searchProduct(id);
+	
+	if (index != -1) //product already exists
+		return;
+	else
+		products.push_back(new Product(id, name, brand, dept, q, p));
+}
+
+void Inventory::removeProduct(int id) {
+	int index = searchProduct(id);
 	
 	if (index == -1)
 		return;
 	else
-		products.erase (products.begin() + index);
+		products.erase(products.begin() + index);
 }
 
-void Inventory::displayProduct(string s, char c) {
-	int index = searchProduct(s, c);
+void Inventory::displayProduct(int id) {
+	int index = searchProduct(id);
 	
 	if (index == -1) {
 		cout << "There are no products matching that search term." << endl;
 	else {
-		cout << "Name: " << (products.at(i)).display() << endl;
+		cout << (products.at(index)).display() << endl;
 	}		
 }
 

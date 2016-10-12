@@ -13,6 +13,7 @@ class Company {
         string name;                         //name of company
         string address;                      //current address of company
         int ID;
+        void searchStore(string Name);
     public:
         Company(string Name, string Address, int Id);
         ~Company();

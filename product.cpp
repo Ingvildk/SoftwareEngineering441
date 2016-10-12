@@ -1,4 +1,8 @@
+
+#include <iostream>
 #include "Product.h"
+using namespace std;
+
 using namespace std;
 
 /*
@@ -7,168 +11,95 @@ using namespace std;
 *
 **/
 
-Product::Product(){
-    name = brand = dept = " ";
-    quantity = msrp = price = 0;
-    isDamaged = false;          // assuming there is nothing damaged
+Product::Product() {
+	name = brand = dept = " ";
+	ID = quantity = msrp = price = 0;
+	isDamaged = false;          // assuming there is nothing damaged
 }
 
-
-/*
-*   Destructor for clearing the memory
-*
-**/
-Product::~Product(){
-
-}
-
-
-/*
-*   Description:
-*   Parameters:
-*
-**/
-void Product::setName(string Name){
+Product::Product(int id, string Name, string Brand, string Dept, int q, double m, double p){
+    ID = id;
     name = Name;
-}
-
-
-
-/*
-*   Description:
-*   Parameters:
-**/
-void Product::setBrand(string Brand){
     brand = Brand;
-}
-
-
-
-/*
-*   Description:
-*   Parameters:
-**/
-void Product::setDept(string Dept){
     dept = Dept;
-}
-
-
-
-/*
-*   Description:
-*   Parameters:
-**/
-void Product::setQuantity(int q){
     quantity = q;
-}
-
-
-
-/*
-*   Description:
-*   Parameters:
-**/
-void Product::setMsrp(int m){
     msrp = m;
-}
-
-
-
-/*
-*   Description:
-*   Parameters:
-**/
-void Product::setPrice(int p){
     price = p;
 }
 
 
+Product::~Product() {
 
-/*
-*   Description:
-*   Parameters:
-**/
-void Product::setDamage(bool b){
-    isDamaged = b;
 }
 
 
 
-/*
-*   Description:
-*   Parameters:
-**/
-bool Product::getDamage() {
-    return isDamaged;
-}
+void Product::setID(int id) {ID = id;}
 
 
 
-/*
-*   Description:
-*   Parameters:
-**/
-string Product::getName() {
-    return name;
-}
+void Product::setName(string Name) {name = Name;}
 
 
 
-/*
-*   Description:
-*   Parameters:
-**/
-string Product::getBrand() {
-    return brand;
-}
+void Product::setBrand(string Brand) {brand = Brand;}
+
+
+void Product::setDept(string Dept) {dept = Dept;}
 
 
 
-/*
-*   Description:
-*   Parameters:
-**/
-string Product::getDept() {
-    return dept;
-}
+void Product::setQuantity(int q) {quantity = q;}
 
 
 
-/*
-*   Description:
-*   Parameters:
-**/
-int Product::getQuantity() {
-    return quantity;
-}
+void Product::setMsrp(double m) {msrp = m;}
 
 
 
-/*
-*   Description:
-*   Parameters:
-**/
-int Product::getMsrp() {
-    return msrp;
-}
+void Product::setPrice(double p) {price = p;}
 
 
 
-/*
-*   Description:
-*   Parameters:
-**/
-int Product::getPrice() {
-    return price;
-}
+void Product::setDamage(bool b) {isDamaged = b;}
+
+
+int Product::getID() {return ID;}
 
 
 
-/*
-*   Description:
-*   Parameters:
-**/
-void Product::display(){
-    cout << " Name /t/t" << "Barnd\t\t" << "Department \t\t" << "Quantity\t\t" <<  "MSRP\t\t" << "price\t\t" << "\n" << endl;
-    cout << name << "\t\t" << brand << "\t\t" << dept << "\t\t" << quantity << "\t\t" << msrp << "\t\t" << price << endl;
+bool Product::getDamage() {return isDamaged;}
+
+
+
+string Product::getName() {return name;}
+
+
+
+string Product::getBrand() {return brand;}
+
+
+
+string Product::getDept() {return dept;}
+
+
+
+int Product::getQuantity() {return quantity;}
+
+
+
+double Product::getMsrp() {return msrp;}
+
+
+
+double Product::getPrice() {return price;}
+
+
+
+void Product::display() {
+    cout << "-------------------------------------------------------------------------------------------------------" << endl;
+	cout << "Product ID\t" << " Name \t\t" << "Barnd\t\t" << "Department \t" << "Quantity\t" << "MSRP\t" << "price\t" << endl;
+	cout << "-------------------------------------------------------------------------------------------------------" << endl;
+	cout << ID << "\t\t" << name << "\t" << brand << "\t" << dept << "\t\t" << quantity << "\t\t$" << msrp << "\t$" << price << endl;
+
 }
