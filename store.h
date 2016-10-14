@@ -4,6 +4,7 @@
 #include "inventory.h"
 #include <string>
 #include <vector>
+
 using namespace std;
 
 class Store {
@@ -13,22 +14,29 @@ class Store {
         string name;                         //name of store
         string address;                      //current address of store
         int id;                             //id of store
+        double salesTax;
+
+        // still have to implement
+        void searchEmployee (string, string);
     public:
-        Store(string, string, int);
+        Store();
+        Store(string Name, string Address, int ID, double stax);
         ~Store();
-        Inventory getInventory() { return inventory; }
-        string getName() { return name; }
-        string getAddress() { return address; }
-        int searchStore(string);
-        int getId() { return id; }
-        void addEmployee(string, string, string, double, int);
-        void removeEmployee(string, string);
-        void changeEmployee(string, string, double);
-        void displayEmployee(string, string);
+        void setName(string Name);
+        void setAddress(string Address);
+        void setId(int ID);
+        void setSalesTax(double stax);
+        string getName();
+        string getAddress();
+        int getId();
+        double getSalesTax();
+        Inventory getInventory();
+        void addEmployee(string empName, string empAddress, string empjobTitle, double empHours, double empSalary, int empDob);
+        void removeEmployee(string empName, string empAddress);
+        void changeEmployee(string empName, string empAddress, double empDob);
+        void displayEmployee(string empName, string empAddress);
         void displayEmployees();
-        void setName(string);
-        void setAddress(string);
-        void setId(int i) { id = i; }
+
 };
 
 #endif
