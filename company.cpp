@@ -12,9 +12,8 @@ Company::Company(string Name, string Address, int Id) {
 	ID = Id;
 }
 
-void Company::addStore(string Name, string Address, int Id) {
-		Store temp = new Store(Name, Address, Id);
-		stores.push_back(temp);;
+void Company::addStore(string Name, string Address, int Id, double Stax) {
+		stores.push_back(Store(Name, Address, Id, Stax));
 	}
 
 int cSearchEmployee(string Emp) {
@@ -90,7 +89,7 @@ void Company::displayStore(string storeName) {
 	}
 }
 void Company::addEmployee(string name, string address, string age, double salary, int) {
-	Employee temp = new Employee(string, string, string, double, int);
+	Employee* temp = new Employee(string, string, string, double, int);
 	employees.push_back(temp);
 }
 
@@ -101,7 +100,7 @@ void Company::displayEmployee(string Name) {
 	int num = cSearchEmployee(Name);
 	// if you can find the employee
 	if ( num!= -1) {
-		Employee temp = employees[num];
+		Employee* temp = employees[num];
 		string Ename = temp.getName();
 		string Eaddress = temp.getAddress();
 		int Eid = temp.getId();
