@@ -19,7 +19,7 @@ class Company {
         ~Company();
         string getName() { return name; }
         string getAddress() { return address; }
-        void addStore(string, string, int);
+        void addStore(string, string, int, double);
         void removeStore(string);
         void changeStore(string, string, int);
         void displayStore(string);
@@ -31,6 +31,8 @@ class Company {
         void displayEmployees();
         void setName(string);
         void setAddress(string);
+        void setId(int);
+        int getId();
         int cSearchStore(string);
         int cSearchEmployee(string);
         void displayCompany();

@@ -89,12 +89,12 @@ void Company::displayStore(string storeName) {
 	}
 }
 void Company::addEmployee(string name, string address, string age, double salary, int) {
-	Employee* temp = new Employee(string, string, string, double, int);
-	employees.push_back(temp);
+	employees.push_back(Employee(string, string, string, double, int));
 }
 
 void Company::changeEmployee(int ID, string job, string address, double Hours) {
 	int index = cSearchEmployee(ID);
+	employees[index].setI
 }
 void Company::displayEmployee(string Name) {
 	int num = cSearchEmployee(Name);
@@ -132,3 +132,11 @@ void Company::setName(string Name) {
 void Company::setAddress(string Address) {
 	address = Address;
 }	
+
+void Company::setId(int ID) {
+	id = ID;
+}
+
+int Company::getId() {
+	return id;
+}
