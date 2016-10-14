@@ -16,6 +16,7 @@ class Employee {
         double hours;   //amount of hours worked in a day
         double salary;  //hourly salary of an employee
         int dob;        //date of birth
+        int id;
     public:
         Employee(const string, const string, const string, double, int);
 
@@ -34,7 +35,8 @@ class Employee {
         void setPass(const string);
         void setHours(double h) { hours = h; }
         void setSalary(double s) { salary = s; }
-
+        void getID();
+        void setID(int);
         void display();
 };
 

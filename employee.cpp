@@ -3,14 +3,14 @@
 #include <cstring>
 using namespace std;
 
-
-<<<<<<< Updated upstream
-Employee::Employee(const string Name, const string Address, const string Job, double Hours, int Dob) {
-	name = Name;
-	address = Address;
-	job = Job;
-	hours = Hours;
-	dob = Dob;
+Employee::Employee(string Nm, string addr, string Title, double Hrs, double Sal, int DOB, int ID) {
+	name = Nm;
+	address = addr;
+	jobTitle = Title;
+	hours = Hrs;
+	salary = Sal;
+	dob = DOB;
+	id = ID;
 }
 
 Employee::~Employee() {
@@ -19,41 +19,38 @@ Employee::~Employee() {
 	job = null;
 	hours = 0;
 	dob = 0;
-=======
-using namespace std;
+	id = 0;
 
-Employee::Employee(string Nm, string addr, string Title, double Hrs, double Sal, int DOB) {
-	name = Nm;
-	address = addr;
-	jobTitle = Title;
-	hours = Hrs;
-	salary = Sal;
-	dob = DOB;
-}
-
-Employee::setAddress(String Addr){
+void Employee::setAddress(String Addr){
 	address = Addr;
 }
 
-Employee::setJob(string Title){
+void Employee::setJob(string Title){
 	jobTitle = Title;
 }
 
-Employee::setUser(string alias){
+void Employee::setUser(string alias){
 	username = alias;
 }
 
-Employee::setPass(string pass){
+void Employee::setPass(string pass){
 	password = pass;
 }
 
-Employee::setHours(double h){
+void Employee::setHours(double h){
 	hours = h;
 }
 
-Employee::setSalary(double s){
+void Employee::setSalary(double s){
 	salary = s;
->>>>>>> Stashed changes
+}
+
+void Employee::setID() {
+	id = ID;
+}
+
+int Employee::getID() {
+	return id;
 }
 
 void Employee::display() {
@@ -63,6 +60,3 @@ void Employee::display() {
 	cout << "Date of Birth: " << dob << endl;
 }
 
-Employee::~Employee() {
-	
-}

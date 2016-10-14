@@ -32,7 +32,9 @@ class Company {
         void setName(string);
         void setAddress(string);
         int cSearchStore(string);
+        int cSearchEmployee(string);
         void displayCompany();
+        void changeEmployee(int,string, string, double);
 };
 
 #endif

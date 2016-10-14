@@ -10,17 +10,25 @@ Company::Company(string Name, string Address, int Id) {
 	name = Name;
 	address = Address;
 	ID = Id;
-	Store temp = ("moch", "moch", 0);
-	store.push_back(temp);
 }
 
 void Company::addStore(string Name, string Address, int Id) {
 		Store temp = new Store(Name, Address, Id);
-		store.push_back(temp);;
+		stores.push_back(temp);;
 	}
 
+int cSearchEmployee(string Emp) {
+	int len = employees.size();
+	for (int i = 0; i < len; i++) {
+		if (employees[len].getName() == Emp) {
+			return i;
+		}
+	}
+	return -1;
+}
+
 int cSearchStore(string Name) {
-	int len = stores.size();
+	int len = stores.size;
 	for (int i = 0; i < len; i++) {
 		if (stores[len].getName() == Name) {
 			return i;
@@ -37,6 +45,10 @@ void Company::removeStore(string storeName) {
 	else {
 	   cout << "The Store does not exists for this company" << endl; 
 	}
+}
+
+void Company::removeEmployee(int id) {
+	if ( cSearchEmployee())	
 }
 
 void Company::changeStore(string Name, string Address, int ID) {
@@ -71,12 +83,12 @@ void Company::displayStore(string storeName) {
 		cout << "Could not find store" << endl;
 	}
 }
-void Company::addEmployee(string, string, string, double, int) {
+void Company::addEmployee(string name, string address, string age, double salary, int) {
 	Employee temp = new Employee(string, string, string, double, int);
 	employees.push_back(temp);
 }
-void Company::removeEmployee(string, string);
-void Company::changeEmployee(string, string, double);
+
+void Company::changeEmployee(int ID, string job, string address, double Hours) {}
 void Company::displayEmployee(string, string);
 void Company::displayEmployees();
 void Company::setName(string);
