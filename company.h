@@ -25,9 +25,9 @@ class Company {
         void displayStore(string);
         void displayStores();
         void addEmployee(string, string, string, double, int);
-        void removeEmployee(string, string);
+        void removeEmployee(string);
         void changeEmployee(string, string, double);
-        void displayEmployee(string, string);
+        void displayEmployee(string);
         void displayEmployees();
         void setName(string);
         void setAddress(string);

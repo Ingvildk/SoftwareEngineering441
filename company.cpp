@@ -47,8 +47,14 @@ void Company::removeStore(string storeName) {
 	}
 }
 
-void Company::removeEmployee(int id) {
-	if ( cSearchEmployee())	
+void Company::removeEmployee(string Name) {
+	int index = cSearchEmployee(Name);
+	// if you found index
+	if ( index != -1)	{
+		employees.erase(employees.begin() + index);
+	} else {
+		cout << << "The employee can not be found" << endl;
+	}
 }
 
 void Company::changeStore(string Name, string Address, int ID) {
@@ -66,7 +72,7 @@ void Company::changeStore(string Name, string Address, int ID) {
 }
 
 void Company::displayCompany() {
-	cout << name << address << ID << endl;
+	cout << name << " " << address << " " << ID << " " << endl;
 }
 
 void Company::displayStore(string storeName) {
@@ -88,8 +94,42 @@ void Company::addEmployee(string name, string address, string age, double salary
 	employees.push_back(temp);
 }
 
-void Company::changeEmployee(int ID, string job, string address, double Hours) {}
-void Company::displayEmployee(string, string);
-void Company::displayEmployees();
-void Company::setName(string);
-void Company::setAddress(string);	
+void Company::changeEmployee(int ID, string job, string address, double Hours) {
+	int index = cSearchEmployee(ID);
+}
+void Company::displayEmployee(string Name) {
+	int num = cSearchEmployee(Name);
+	// if you can find the employee
+	if ( num!= -1) {
+		Employee temp = employees[num];
+		string Ename = temp.getName();
+		string Eaddress = temp.getAddress();
+		int Eid = temp.getId();
+		double Etax =  temp.getSalesTax();
+		cout << Ename << endl;
+		cout << Eaddress << endl;
+		cout << Eid << endl;	
+		cout <<	Etax << endl;
+	} else {
+		cout << "The employee could not be found" << endl;
+	}
+}
+void Company::displayEmployees() {
+	int len = employees.size;
+	// if the employees vector is zero
+	if ( len == 0) {
+		cout << "No elements in vector employees" << endl;
+	} else {
+		// loop through employees vector and dispay each element
+		for (int i = 0; i < len; i++) {
+			string na = employees[i].getName();
+			displayEmployee(na);
+		}
+	}
+}
+void Company::setName(string Name) {
+	name = Name;
+}
+void Company::setAddress(string Address) {
+	address = Address;
+}	
