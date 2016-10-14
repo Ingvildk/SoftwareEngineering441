@@ -29,10 +29,11 @@ class Employee {
         double getHours() { return hours; }
         double getSalary() { return salary; }
         int getDob() { return dob; }
-        void setAddress(const string);
-        void setJob(const string);
-        void setUser(const string);
-        void setPass(const string);
+        void setName(string na) {name = na;}
+        void setAddress(string);
+        void setJob(string);
+        void setUser(string);
+        void setPass(string);
         void setHours(double h) { hours = h; }
         void setSalary(double s) { salary = s; }
         void getID();

@@ -8,10 +8,10 @@ using namespace std;
 
 class Company {
     private:
-        std::vector<Employee> employees;   //list of employees
-        std::vector<Store> stores;         //list of stores
-        string name;                         //name of company
-        string address;                      //current address of company
+        vector <Employee> employees;   //list of employees
+        vector <Store> stores;         //list of stores
+        string name;                       //name of company
+        string address;                    //current address of company
         int ID;
         void searchStore(string Name);
     public:
@@ -36,7 +36,8 @@ class Company {
         int cSearchStore(string);
         int cSearchEmployee(string);
         void displayCompany();
-        void changeEmployee(int,string, string, double);
+        void changeEmployee(string,string, string, double);
+        int employeeSize();
 };
 
 #endif

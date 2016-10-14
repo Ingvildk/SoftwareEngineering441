@@ -3,20 +3,24 @@
 #include <string>
 #include <iostream>
 #include <algorithm>
-
+#include <vector>
 using namespace std;
 
 Company::Company(string Name, string Address, int Id) {
 	name = Name;
 	address = Address;
 	ID = Id;
+// PUSH TWO MOCH DATA OBJECT STORE AND EMPLOYEE to vectors SEE IF HELPS
+//	addStore("moch", "moch", 0, 0);
+//	addEmployee("moch", "moch", "moch", 0, 0);
 }
 
 void Company::addStore(string Name, string Address, int Id, double Stax) {
 		stores.push_back(Store(Name, Address, Id, Stax));
 	}
 
-int cSearchEmployee(string Emp) {
+int Company::cSearchEmployee(string Emp) {
+	int test = stores.size();
 	int len = employees.size();
 	for (int i = 0; i < len; i++) {
 		if (employees[len].getName() == Emp) {
@@ -26,8 +30,8 @@ int cSearchEmployee(string Emp) {
 	return -1;
 }
 
-int cSearchStore(string Name) {
-	int len = stores.size;
+int Company::cSearchStore(string Name) {
+	int len = stores.size();
 	for (int i = 0; i < len; i++) {
 		if (stores[len].getName() == Name) {
 			return i;
@@ -52,7 +56,7 @@ void Company::removeEmployee(string Name) {
 	if ( index != -1)	{
 		employees.erase(employees.begin() + index);
 	} else {
-		cout << << "The employee can not be found" << endl;
+		cout << "The employee can not be found" << endl;
 	}
 }
 
@@ -80,7 +84,7 @@ void Company::displayStore(string storeName) {
 	if ( num != -1) {
 		string Name = stores[num].getName();
 		string Address = stores[num].getAddress();
-		string ID = stores[num].getId();
+		int ID = stores[num].getId();
 		cout << Name << endl;
 		cout << Address << endl;
 		cout << ID << endl;				
@@ -88,23 +92,26 @@ void Company::displayStore(string storeName) {
 		cout << "Could not find store" << endl;
 	}
 }
-void Company::addEmployee(string name, string address, string age, double salary, int) {
-	employees.push_back(Employee(string, string, string, double, int));
+void Company::addEmployee(string name, string address, string age, double salary, int id) {
+	employees.push_back(Employee(name, address, age, salary, id));
 }
 
-void Company::changeEmployee(int ID, string job, string address, double Hours) {
-	int index = cSearchEmployee(ID);
-	employees[index].setI
+void Company::changeEmployee(string Name, string Job, string Address, double Hours) {
+	int index = cSearchEmployee(Name);
+	employees[index].setName(Name);
+	employees[index].setJob(Job);
+	employees[index].setAddress(Address);
+	employees[index].setHours(Hours);
 }
+
 void Company::displayEmployee(string Name) {
 	int num = cSearchEmployee(Name);
 	// if you can find the employee
 	if ( num!= -1) {
-		Employee* temp = employees[num];
-		string Ename = temp.getName();
-		string Eaddress = temp.getAddress();
-		int Eid = temp.getId();
-		double Etax =  temp.getSalesTax();
+		string Ename = employees[num].getName();
+		string Eaddress = employees[num].getAddress();
+		int Eid = employees[num].getID();
+		double Etax =  employees[num].getSalesTax();
 		cout << Ename << endl;
 		cout << Eaddress << endl;
 		cout << Eid << endl;	
@@ -114,7 +121,7 @@ void Company::displayEmployee(string Name) {
 	}
 }
 void Company::displayEmployees() {
-	int len = employees.size;
+	int len = employees.size();
 	// if the employees vector is zero
 	if ( len == 0) {
 		cout << "No elements in vector employees" << endl;
@@ -133,10 +140,10 @@ void Company::setAddress(string Address) {
 	address = Address;
 }	
 
-void Company::setId(int ID) {
-	id = ID;
+void Company::setId(int id) {
+	ID = id;
 }
 
 int Company::getId() {
-	return id;
+	return ID;
 }
