@@ -111,11 +111,11 @@ void Company::displayEmployee(string Name) {
 		string Ename = employees[num].getName();
 		string Eaddress = employees[num].getAddress();
 		int Eid = employees[num].getID();
-		double Etax =  employees[num].getSalesTax();
+		int Esalary = employees[num].getSalary();
 		cout << Ename << endl;
 		cout << Eaddress << endl;
 		cout << Eid << endl;	
-		cout <<	Etax << endl;
+		cout <<	Esalary << endl;
 	} else {
 		cout << "The employee could not be found" << endl;
 	}

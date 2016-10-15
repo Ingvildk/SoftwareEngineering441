@@ -36,7 +36,7 @@ class Employee {
         void setPass(string);
         void setHours(double h) { hours = h; }
         void setSalary(double s) { salary = s; }
-        void getID();
+        int getID();
         void setID(int);
         void display();
 };
