@@ -3,12 +3,11 @@
 #include "product.h"
 #include <vector>
 #include <string>
-using namespace std;
 
 class Inventory {
     private:
         std::vector<Product> products;     //list of products
-        int searchProduct(string, char);
+        int searchProduct(string);
         int searchProduct (int);
     public:
         void addProduct (int, string, string, string, int, double, double);

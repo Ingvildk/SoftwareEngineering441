@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include "Product.h"
+#include "product.h"
 using namespace std;
 
 using namespace std;
