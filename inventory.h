@@ -15,6 +15,7 @@ class Inventory {
         void displayProduct(int);
         void displayProducts();
         void applySale (int);
+        Product getProduct(int);
 };
 
 #endif

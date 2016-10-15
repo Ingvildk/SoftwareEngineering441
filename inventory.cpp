@@ -58,3 +58,12 @@ void Inventory::displayProducts() {
     	(products.at(i)).display();
   	cout << '\n';
 }
+
+Product Inventory::getProduct(int id) {
+	int index = searchProduct(id);
+	
+	if (index == -1)
+		cout << "There are no products matching that search term." << endl;
+	else
+		return products.at(index);
+}
