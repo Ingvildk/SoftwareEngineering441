@@ -19,7 +19,7 @@ class Employee {
         Employee(int ID, const string Name, const string Address, const string Job, double sal, int Dob);
         ~Employee();
         void setId(int ID);
-        void setName(const stirng Name);
+        void setName(const string Name);
         void setAddress(const string Address);
         void setJob(const string Job);
         void setUser(const string Uname);

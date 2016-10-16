@@ -6,20 +6,20 @@ using namespace std;
 
 
 Employee::Employee(int ID, const string Name, const string Address, const string Job, double sal, int Dob) {
-    	id = ID;
+    id = ID;
 	name = Name;
 	address = Address;
-	job = Job;
+	jobTitle = Job;
 	salary = sal;
 	dob = Dob;
 }
 
 Employee::~Employee() {
-    
+
 }
 
 
-void Employee::setName(const stirng Name){
+void Employee::setName(const string Name){
     name = Name;
 }
 
@@ -57,59 +57,59 @@ void Employee::setHours(double h) {
 
 
 
-void Employee::setSalary(double s) { 
-    salary = s; 
-    
+void Employee::setSalary(double s) {
+    salary = s;
+
 }
 
 int Employee::getId(){
     return id;
 }
 
-string Employee::getName() { 
-    return name; 
+string Employee::getName() {
+    return name;
 }
 
 
-string Employee::getAddress() { 
-    return address; 
+string Employee::getAddress() {
+    return address;
 }
-    
-    
-string Employee::getJob() { 
-    return jobTitle; 
+
+
+string Employee::getJob() {
+    return jobTitle;
 }
-    
-    
-    
-string Employee::getUser() { 
-    return username; 
+
+
+
+string Employee::getUser() {
+    return username;
 }
-    
-    
-string Employee::getPass() { 
-    return password; 
+
+
+string Employee::getPass() {
+    return password;
 }
-    
-    
-double Employee::getHours() { 
-    return hours; 
+
+
+double Employee::getHours() {
+    return hours;
 }
-    
-    
-double Employee::getSalary() { 
-    return salary; 
+
+
+double Employee::getSalary() {
+    return salary;
 }
-    
-    
-int Employee::getDob() { 
-    return dob; 
+
+
+int Employee::getDob() {
+    return dob;
 }
-    
-    
+
+
 
 void Employee::display() {
-    	cout << "ID# : " << id << endl;
+    cout << "ID# : " << id << endl;
 	cout << "Name: " << name << endl;
 	cout << "Address: " << address << endl;
 	cout << "Job Title: " << jobTitle << endl;
