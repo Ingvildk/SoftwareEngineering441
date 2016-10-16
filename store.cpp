@@ -17,6 +17,16 @@ Store::Store(string Name, string Address, int ID, double stax){
 }
 
 
+int Store::searchEmployee(int ID){
+    for (int empIndex = 0; empIndex < employees.size(); empIndex++) {
+		if ((employees.at(empIndex)).getId() == ID)
+			return empIndex;
+	}
+
+	return -1;
+
+}
+
 Store::~Store(){
 
 }
@@ -45,62 +55,74 @@ void Store::setSalesTax(double stax){
 
 
 
-string Store::getName() { return name; }
-
-string Store::getAddress() { return address; }
-
-int Store::getId() { return id; }
-
-double Store::getSalesTax(){ return salesTax; }
+string Store::getName() {
+    return name;
+}
 
 
-Inventory Store::getInventory() { return inventory; }
+string Store::getAddress() {
+    return address;
+}
+
+
+int Store::getId() {
+    return id;
+}
+
+
+double Store::getSalesTax(){
+    return salesTax;
+}
+
+
+Inventory Store::getInventory() {
+    return inventory;
+}
 
 
 
 
-
-void Store::addEmployee(string empName, string empAddress, string empjobTitle, double empHours, double empSalary, int empDob){
-    Employee empObject;
-    if(!searchEmployee(empName, empAddress)){
-            employees.push_back(empObject.Employee(empName, empAddress, empjobTitle, empHours, empSalary, empDob));
+void Store::addEmployee(int ID, const string Name, const string Address, const string Job, double sal, int Dob){
+    if(searchEmployee(ID) == -1){
+            employees.push_back(Employee(ID, Name, Address, Job, sal, Dob));
     }else{
-        cout << "\n\n Employee with Name: " << empName << " and with Address: " << empAddress << " \n\n" << endl;
+        cout << "\n\n Employee with ID: " << ID << " already EXIST \n\n" << endl;
     }
 }
 
 
-// still working on this beacuse need employee and inventory file
-void Store::removeEmployee(string empName, string empAddress){
-    Employee empObject;
-    if(!searchEmployee(empName, empAddress)){
-        cout << " \n\n There is no employee name : " << empName << "\n\n" << endl;
+
+void Store::removeEmployee(int ID, string empName ){
+    if(searchEmployee(ID) == -1){
+        cout << " \n\n There is no employee with ID# : " << ID << " and name : " << empName << "\n\n" << endl;
     }else{
-        employees.erase(empObject); // not correct yet
+        employees.erase(employees.begin() + searchEmployee(ID));
     }
 }
 
-// still working on this because need employee and inventory file
-void Store::changeEmployee(string empName, string empAddress, double empDob){
-    Employee empObject;
-    if(!searchEmployee(empName, empAddress)){
 
+void Store::changeEmployee(int ID, string empName, string empAddress, int empDob){
+    if(searchEmployee(ID) == -1){
+        cout << "\n\n Employee with ID: " << ID << " already EXIST \n\n" << endl;
+    }else{
+        employees.at(searchEmployee(ID)).setName(empName);
+        employees.at(searchEmployee(ID)).setAddress(empAddress);
+        employees.at(searchEmployee(ID)).setDob(empDob);
     }
 }
-void displayEmployee(string empName, string empAddress){
-    Employee empObject;
-    if(searchEmployee(empName, empAddress)){
 
-     // print one single employee
+void Store::displayEmployee(int ID){
+
+    if(searchEmployee(ID) == -1){
+      cout << " \n\n There is no employee with ID# : " << ID <<  endl;
 
     }else{
-        cout << "There is NO Employee with name: '" << empName << "' in the this Store" << endl;
+        employees.at(searchEmployee(ID)).display();
     }
 }
-void displayEmployees(){
-    Employee empObject;
+void Store::displayEmployees(){
     for(int i = 0; i < employees.size(); i++){
-        empObject.display();
+        employees.at(i).display();
     }
 }
 

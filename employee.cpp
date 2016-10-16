@@ -18,19 +18,17 @@ Employee::~Employee() {
 
 }
 
+void Employee::setId(int ID){
+    id = ID;
+}
 
 void Employee::setName(const string Name){
     name = Name;
 }
 
 
-void Employee::setId(int ID){
-    id = ID;
-}
-
-
 void Employee::setAddress(const string Address){
-    name = Address;
+    address = Address;
 }
 
 
@@ -56,10 +54,13 @@ void Employee::setHours(double h) {
 }
 
 
-
 void Employee::setSalary(double s) {
     salary = s;
 
+}
+
+void Employee::setDob(int Dob){
+    dob = Dob;
 }
 
 int Employee::getId(){

@@ -26,6 +26,7 @@ class Employee {
         void setPass(const string p);
         void setHours(double h);
         void setSalary(double s);
+        void setDob(int Dob);
         int getId();
         string getName();
         string getAddress();
