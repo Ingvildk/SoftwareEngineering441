@@ -3,11 +3,10 @@
 #include <string>
 using namespace std;
 
-#include <string>
-using namespace std;
 
 class Employee {
     private:
+        int id;
         string name;     //name of employee
         string address;  //current address of employee
         string jobTitle; //job title of the employee
@@ -16,28 +15,26 @@ class Employee {
         double hours;   //amount of hours worked in a day
         double salary;  //hourly salary of an employee
         int dob;        //date of birth
-        int id;
     public:
-        Employee(const string, const string, const string, double, int);
-
+        Employee(int ID, const string Name, const string Address, const string Job, double sal, int Dob);
         ~Employee();
-        string getName() { return name; }
-        string getAddress() { return address; }
-        string getJob() { return jobTitle; }
-        string getUser() { return username; }
-        string getPass() { return password; }
-        double getHours() { return hours; }
-        double getSalary() { return salary; }
-        int getDob() { return dob; }
-        void setName(string na) {name = na;}
-        void setAddress(string);
-        void setJob(string);
-        void setUser(string);
-        void setPass(string);
-        void setHours(double h) { hours = h; }
-        void setSalary(double s) { salary = s; }
-        int getID();
-        void setID(int);
+        void setId(int ID);
+        void setName(const stirng Name);
+        void setAddress(const string Address);
+        void setJob(const string Job);
+        void setUser(const string Uname);
+        void setPass(const string p);
+        void setHours(double h);
+        void setSalary(double s);
+        int getId();
+        string getName();
+        string getAddress();
+        string getJob();
+        string getUser();
+        string getPass();
+        double getHours();
+        double getSalary();
+        int getDob();
         void display();
 };
 
