@@ -1,8 +1,43 @@
 #include "inventory.h"
-#include <algorithm>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
+
+Inventory::Inventory(int store) {
+	storeID = store;	
+	string line;
+	string s = to_string(storeID);
+	ifstream myfile(s + "Inventory.txt");
+	int id;
+	string name;
+	string brand;
+	string dept;
+	int q;
+	double m;
+	double p;
+	
+	if (myfile.is_open()) {
+    	while (getline(myfile, line)) {
+    		if (line == "")
+    			return;
+    		else {
+    			id = stoi(line);
+    			getline(myfile, name);
+    			getline(myfile, brand);
+    			getline(myfile, dept);
+    			getline(myfile, line);
+    			q = stoi(line);
+    			getline(myfile, line);
+    			m = stod(line);
+    			getline(myfile, line);
+    			p = stod(line);
+    			products.push_back(Product(id, name, brand, dept, q, m, p));
+    		}
+      	}
+    	myfile.close();
+  	}
+}
 
 int Inventory::searchProduct(string s) {
 	for (int i = 0; i < products.size(); i++) {
@@ -29,10 +64,19 @@ int Inventory::searchProduct(int id) {
 void Inventory::addProduct(int id, string name, string brand, string dept, int q, double m, double p) {
 	int index = searchProduct(id);
 	
-	if (index != -1) //product already exists
+	if (index != -1)
 		return;
-	else
+	else {
 		products.push_back(Product(id, name, brand, dept, q, m, p));
+		
+		ofstream myfile;
+		string s = to_string(storeID);
+		myfile.open(s + "Inventory.txt", std::ios::app);
+		
+		myfile << id << "\n" << name << "\n";
+		myfile << brand << "\n" << dept << "\n";
+		myfile << q << "\n" << m << "\n" << p << "\n";
+	}
 }
 
 void Inventory::removeProduct(int id) {
@@ -40,8 +84,30 @@ void Inventory::removeProduct(int id) {
 	
 	if (index == -1)
 		return;
-	else
+	else {
 		products.erase(products.begin() + index);
+		
+		string s = to_string(storeID);
+		string filenameOld = s + "Inventory.txt";
+		string filenameNew = s + "InventoryNEW.txt";
+		ofstream myfile(filenameNew);
+		
+		for (int i = 0; i < products.size(); i++) {
+			myfile << (products.at(i)).getID() << "\n";
+			myfile << (products.at(i)).getName() << "\n";
+			myfile << (products.at(i)).getBrand() << "\n";
+			myfile << (products.at(i)).getDept() << "\n";
+			myfile << (products.at(i)).getQuantity() << "\n";
+			myfile << (products.at(i)).getMsrp() << "\n";
+			myfile << (products.at(i)).getPrice() << "\n";
+		}
+		myfile.close();
+		
+		if (myfile) {
+			remove(filenameOld.c_str());
+			rename(filenameNew.c_str(), filenameOld.c_str());
+		}
+	}
 }
 
 void Inventory::displayProduct(int id) {
