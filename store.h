@@ -15,9 +15,7 @@ class Store {
         string address;                      //current address of store
         int id;                             //id of store
         double salesTax;
-
-        // still have to implement
-        void searchEmployee (string, string);
+        int searchEmployee (int);
     public:
         Store();
         Store(string Name, string Address, int ID, double stax);
@@ -31,10 +29,10 @@ class Store {
         int getId();
         double getSalesTax();
         Inventory getInventory();
-        void addEmployee(string empName, string empAddress, string empjobTitle, double empHours, double empSalary, int empDob);
-        void removeEmployee(string empName, string empAddress);
-        void changeEmployee(string empName, string empAddress, double empDob);
-        void displayEmployee(string empName, string empAddress);
+        void addEmployee(int ID, const string Name, const string Address, const string Job, double sal, int Dob);
+        void removeEmployee(int ID, string empName);
+        void changeEmployee(int ID, string empName, string empAddress, int empDob);
+        void displayEmployee(int ID);
         void displayEmployees();
 
 };
