@@ -20,7 +20,7 @@ Inventory::Inventory(int store) {
 	if (myfile.is_open()) {
     	while (getline(myfile, line)) {
     		if (line == "")
-    			return;
+    			break;
     		else {
     			id = stoi(line);
     			getline(myfile, name);
