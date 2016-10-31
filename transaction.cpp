@@ -11,9 +11,9 @@ void Transaction::newReturn(items) {
 }
 
 void Transaction::newSale(items) {
-	int sum = 0;
-	float total;
-	float tax = getSalesTax();
+	double sum = 0;
+	double total;
+	double tax = getSalesTax();
 	for (int i = 0; i < items.length(); i++) {
 		sum += getItemPrice(i);
 	}
