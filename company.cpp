@@ -23,7 +23,7 @@ int Company::cSearchEmployee(string Emp) {
 	int test = stores.size();
 	int len = employees.size();
 	for (int i = 0; i < len; i++) {
-		if (employees[len].getName() == Emp) {
+		if (employees[i].getName() == Emp) {
 			return i;
 		}
 	}
@@ -33,7 +33,7 @@ int Company::cSearchEmployee(string Emp) {
 int Company::cSearchStore(string Name) {
 	int len = stores.size();
 	for (int i = 0; i < len; i++) {
-		if (stores[len].getName() == Name) {
+		if (stores[i].getName() == Name) {
 			return i;
 		}
 	}
@@ -92,10 +92,11 @@ void Company::displayStore(string storeName) {
 		cout << "Could not find store" << endl;
 	}
 }
-void Company::addEmployee(string name, string address, string age, double salary, int id) {
-	employees.push_back(Employee(name, address, age, salary, id));
+void Company::addEmployee(int ID, string Name, string Address, string Job, double Sal, int DOB) {
+	//Employee constructor accepts this format:
+		// (string ID, string Name, string Address, string Job, double Sal, int DOB)
+	employees.push_back(Employee(ID, Name, Address, Job, Sal, DOB));
 }
-
 void Company::changeEmployee(string Name, string Job, string Address, double Hours) {
 	int index = cSearchEmployee(Name);
 	employees[index].setName(Name);
@@ -110,7 +111,7 @@ void Company::displayEmployee(string Name) {
 	if ( num!= -1) {
 		string Ename = employees[num].getName();
 		string Eaddress = employees[num].getAddress();
-		int Eid = employees[num].getID();
+		int Eid = employees[num].getId();
 		int Esalary = employees[num].getSalary();
 		cout << Ename << endl;
 		cout << Eaddress << endl;
