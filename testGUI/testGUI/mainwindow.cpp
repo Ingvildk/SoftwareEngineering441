@@ -132,3 +132,13 @@ void MainWindow::on_pushButtonQty_clicked()
     ui->textBrowserTransaction->append(str);
     MainWindow::on_pushButtonClr_clicked();
 }
+
+void MainWindow::on_pushButtonManualKey_clicked()
+{
+    ui->textBrowserTransaction->setPlainText("Hi Logan!");
+}
+
+void MainWindow::on_actionExit_triggered()
+{
+    QApplication::quit();
+}

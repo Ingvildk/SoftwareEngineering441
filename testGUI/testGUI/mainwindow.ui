@@ -834,7 +834,10 @@
        </widget>
       </item>
       <item row="1" column="0">
-       <widget class="QPushButton" name="pushButton_29">
+       <widget class="QPushButton" name="pushButtonManualKey">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="MinimumExpanding">
           <horstretch>0</horstretch>
@@ -945,6 +948,8 @@
     </property>
     <addaction name="actionSwitch_User"/>
     <addaction name="actionLogout"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
    </widget>
    <widget class="QMenu" name="menuOptions">
     <property name="title">
@@ -952,6 +957,7 @@
     </property>
     <addaction name="actionAdd_Item"/>
     <addaction name="actionEdit_Items"/>
+    <addaction name="actionEdit_Employees"/>
    </widget>
    <widget class="QMenu" name="menuHelp">
     <property name="title">
@@ -995,6 +1001,19 @@
   <action name="actionAbout">
    <property name="text">
     <string>About</string>
+   </property>
+  </action>
+  <action name="actionEdit_Employees">
+   <property name="text">
+    <string>Edit Employees</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
    </property>
   </action>
  </widget>
