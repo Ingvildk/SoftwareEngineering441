@@ -20,6 +20,7 @@ class Store {
         Store();
         Store(string Name, string Address, int ID, double stax);
         ~Store();
+        void readEmpFile();
         void setName(string Name);
         void setAddress(string Address);
         void setId(int ID);
