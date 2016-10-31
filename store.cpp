@@ -142,24 +142,24 @@ void Store::removeEmployee(int ID, string empName ){
         cout << " \n\n There is no employee with ID# : " << ID << " and name : " << empName << "\n\n" << endl;
     }else{
         employees.erase(employees.begin() + searchEmployee(ID));
-	string filenameOld = "employee.txt";
-	string filenameNew = "employeeNEW.txt";
-	ofstream myfile(filenameNew);
+		string filenameOld = "employee.txt";
+		string filenameNew = "employeeNEW.txt";
+		ofstream myfile(filenameNew);
 
-	for (int i = 0; i < employees.size(); i++) {
-		myfile << (employees.at(i)).getId() << "\n";
-		myfile << (employees.at(i)).getName() << "\n";
-		myfile << (employees.at(i)).getAddress() << "\n";
-		myfile << (employees.at(i)).getJob() << "\n";
-		myfile << (employees.at(i)).getSalary() << "\n";
-		myfile << (employees.at(i)).getDob() << "\n";
-	}
-	myfile.close();
+		for (int i = 0; i < employees.size(); i++) {
+			myfile << (employees.at(i)).getId() << "\n";
+			myfile << (employees.at(i)).getName() << "\n";
+			myfile << (employees.at(i)).getAddress() << "\n";
+			myfile << (employees.at(i)).getJob() << "\n";
+			myfile << (employees.at(i)).getSalary() << "\n";
+			myfile << (employees.at(i)).getDob() << "\n";
+		}
+		myfile.close();
 
-	if (myfile) {
-		remove(filenameOld.c_str());
-		rename(filenameNew.c_str(), filenameOld.c_str());
-	}
+		if (myfile) {
+			remove(filenameOld.c_str());
+			rename(filenameNew.c_str(), filenameOld.c_str());
+		}
     }
 }
 
@@ -171,6 +171,26 @@ void Store::changeEmployee(int ID, string empName, string empAddress, int empDob
         employees.at(searchEmployee(ID)).setName(empName);
         employees.at(searchEmployee(ID)).setAddress(empAddress);
         employees.at(searchEmployee(ID)).setDob(empDob);
+
+        string filenameOld = "employee.txt";
+		string filenameNew = "employeeNEW.txt";
+		ofstream myfile(filenameNew);
+
+		for (int i = 0; i < employees.size(); i++) {
+			myfile << (employees.at(i)).getId() << "\n";
+			myfile << (employees.at(i)).getName() << "\n";
+			myfile << (employees.at(i)).getAddress() << "\n";
+			myfile << (employees.at(i)).getJob() << "\n";
+			myfile << (employees.at(i)).getSalary() << "\n";
+			myfile << (employees.at(i)).getDob() << "\n";
+		}
+		myfile.close();
+
+		if (myfile) {
+			remove(filenameOld.c_str());
+			rename(filenameNew.c_str(), filenameOld.c_str());
+		}
+
     }
 }
 
