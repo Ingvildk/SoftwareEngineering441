@@ -929,11 +929,6 @@
      </property>
     </widget>
    </widget>
-   <zorder>frame</zorder>
-   <zorder>frame_2</zorder>
-   <zorder>frame_2</zorder>
-   <zorder>frame_3</zorder>
-   <zorder>frame_4</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -941,7 +936,7 @@
      <x>0</x>
      <y>0</y>
      <width>1280</width>
-     <height>25</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuPOS">

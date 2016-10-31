@@ -41,9 +41,9 @@ private slots:
 
     void on_pushButtonEnter_clicked();
 
-    void on_pushButton_26_clicked();
-
     void on_pushButtonNewSale_clicked();
+
+    void on_pushButtonQty_clicked();
 
 private:
     Ui::MainWindow *ui;

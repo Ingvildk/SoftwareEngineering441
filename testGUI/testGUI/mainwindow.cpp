@@ -123,3 +123,12 @@ void MainWindow::on_pushButtonNewSale_clicked()
     MainWindow::on_pushButtonClr_clicked();
     ui->textBrowserTransaction->setPlainText("");
 }
+
+void MainWindow::on_pushButtonQty_clicked()
+{
+    QString str = "[";
+    str.append(QString::number(ui->lcdNumber->intValue()));
+    str.append("x]");
+    ui->textBrowserTransaction->append(str);
+    MainWindow::on_pushButtonClr_clicked();
+}
