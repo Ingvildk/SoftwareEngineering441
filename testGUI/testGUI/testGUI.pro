@@ -13,8 +13,20 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    testwindow.cpp \
+    testwindow2.cpp \
+    button1_window.cpp \
+    testwindow3.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    testwindow.h \
+    testwindow2.h \
+    button1_window.h \
+    testwindow3.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    testwindow.ui \
+    testwindow2.ui \
+    button1_window.ui \
+    testwindow3.ui

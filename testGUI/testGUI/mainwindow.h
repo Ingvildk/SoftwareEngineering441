@@ -2,6 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "testwindow.h"
+#include "testwindow2.h"
+#include "button1_window.h"
+#include "testwindow3.h"
 
 namespace Ui {
 class MainWindow;
@@ -49,8 +53,20 @@ private slots:
 
     void on_actionExit_triggered();
 
+    void on_actionEdit_Buttons_triggered();
+
+    void on_actionEdit_Items_triggered();
+
+    void on_pushButton_3_clicked();
+
+    void on_actionEdit_Employees_triggered();
+
 private:
     Ui::MainWindow *ui;
+    testwindow *tw;
+    testwindow2 *tw2;
+    button1_window *bw1;
+    testwindow3 *tw3;
 };
 
 #endif // MAINWINDOW_H

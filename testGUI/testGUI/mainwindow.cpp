@@ -142,3 +142,27 @@ void MainWindow::on_actionExit_triggered()
 {
     QApplication::quit();
 }
+
+void MainWindow::on_actionEdit_Buttons_triggered()
+{
+    tw = new testwindow();
+    tw->show();
+}
+
+void MainWindow::on_actionEdit_Items_triggered()
+{
+    tw2 = new testwindow2();
+    tw2->show();
+}
+
+void MainWindow::on_pushButton_3_clicked()
+{
+    bw1 = new button1_window();
+    bw1->show();
+}
+
+void MainWindow::on_actionEdit_Employees_triggered()
+{
+    tw3 = new testwindow3();
+    tw3->show();
+}
