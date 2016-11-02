@@ -4,6 +4,8 @@
 #include "employee.h"
 #include "store.h"
 #include <vector>
+#include <fstream>
+
 using namespace std;
 
 class Company {
@@ -38,6 +40,7 @@ class Company {
         void displayCompany();
         void changeEmployee(string,string, string, double);
         int employeeSize();
+        void readEmpFile();
 };
 
 #endif
