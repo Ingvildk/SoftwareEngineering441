@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::testwindow2 *ui;
+    void fillTable();
 };
 
 #endif // TESTWINDOW2_H

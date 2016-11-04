@@ -166,3 +166,14 @@ void MainWindow::on_actionEdit_Employees_triggered()
     tw3 = new testwindow3();
     tw3->show();
 }
+
+void MainWindow::on_pushButtonCategory1_clicked()
+{
+
+}
+
+void MainWindow::on_actionSwitch_User_triggered()
+{
+    ls = new LoginScreen();
+    ls->show();
+}

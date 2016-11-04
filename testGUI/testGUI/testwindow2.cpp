@@ -12,3 +12,8 @@ testwindow2::~testwindow2()
 {
     delete ui;
 }
+
+void testwindow2::fillTable()
+{
+    //ui->tableWidget->
+}

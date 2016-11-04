@@ -17,16 +17,19 @@ SOURCES += main.cpp\
     testwindow.cpp \
     testwindow2.cpp \
     button1_window.cpp \
-    testwindow3.cpp
+    testwindow3.cpp \
+    loginscreen.cpp
 
 HEADERS  += mainwindow.h \
     testwindow.h \
     testwindow2.h \
     button1_window.h \
-    testwindow3.h
+    testwindow3.h \
+    loginscreen.h
 
 FORMS    += mainwindow.ui \
     testwindow.ui \
     testwindow2.ui \
     button1_window.ui \
-    testwindow3.ui
+    testwindow3.ui \
+    loginscreen.ui
