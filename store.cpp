@@ -60,8 +60,8 @@ Inventory Store::getInventory() { return inventory; }
 
 
 
-void Store::addEmployee(string empName, string empAddress, string empjobTitle, double empHours, double empSalary, int empDob){
-    Employee empObject;
+void Store::addEmployee(string empName, string empAddress, string empjobTitle, double empHours, double empSalary, int empDob, int ID){
+    Employee empObject(empName, empAddress, empjobTitle, empHours, empHours, empDob);
     if(!searchEmployee(empName, empAddress)){
             employees.push_back(empObject.Employee(empName, empAddress, empjobTitle, empHours, empSalary, empDob));
     }else{
