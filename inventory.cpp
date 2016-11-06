@@ -1,58 +1,82 @@
 #include "inventory.h"
-#include <algorithm>
 #include <iostream>
+#include <fstream>
 
 using namespace std;
 
-int Inventory::searchProduct(string s, char c) {
-	std::vector<Products>::iterator it;
+Inventory::Inventory(int store) {
+	storeID = store;	
+	string line;
+	string s = to_string(storeID);
+	ifstream myfile(s + "Inventory.txt");
+	int id;
+	string name;
+	string brand;
+	string dept;
+	int q;
+	double m;
+	double p;
 	
-	if (c == n) { //if the string is the name of a product
-		it = std::find(products.begin(), products.end(), [&](const products & p) {
-			p.getName() == s;
-		});
-	}
-	else if (c == b) { //if the string is the brand of a product
-		it = std::find(products.begin(), products.end(), [&](const products & p) {
-			p.getBrand() == s;
-		});
-	}
-	else { //if the string is the department of a product
-		it = std::find(products.begin(), products.end(), [&](const products & p) {
-			p.getDept() == s;
-		});
+	if (myfile.is_open()) {
+    	while (getline(myfile, line)) {
+    		if (line == "")
+    			break;
+    		else {
+    			id = stoi(line);
+    			getline(myfile, name);
+    			getline(myfile, brand);
+    			getline(myfile, dept);
+    			getline(myfile, line);
+    			q = stoi(line);
+    			getline(myfile, line);
+    			m = stod(line);
+    			getline(myfile, line);
+    			p = stod(line);
+    			products.push_back(Product(id, name, brand, dept, q, m, p));
+    		}
+      	}
+    	myfile.close();
+  	}
+}
+
+int Inventory::searchProduct(string s) {
+	for (int i = 0; i < products.size(); i++) {
+		if ((products.at(i)).getName() == s)
+			return i;
+		if ((products.at(i)).getBrand() == s)
+			return i;
+		if ((products.at(i)).getDept() == s)
+			return i;
 	}
 	
-	int index = it - products.begin(); //calculate the index of the product
-	
-	if (index >= products.size()) //product was not found
-		return -1;
-	else
-		return index;
+	return -1;
 }
 
 int Inventory::searchProduct(int id) {
-	std::vector<Products>::iterator it;
+	for (int i = 0; i < products.size(); i++) {
+		if ((products.at(i)).getID() == id)
+			return i;
+	}
 	
-	it = std::find(products.begin(), products.end(), [&](const products & p) {
-		p.getID() == id;
-	});
-	
-	int index = it - products.begin(); //calculate the index of the product
-	
-	if (index >= products.size()) //product was not found
-		return -1;
-	else
-		return index;
+	return -1;
 }
 
-void Inventory::addProduct(int id, string name, string brand, string dept, int q, double p) {
-	int index == searchProduct(id);
+void Inventory::addProduct(int id, string name, string brand, string dept, int q, double m, double p) {
+	int index = searchProduct(id);
 	
-	if (index != -1) //product already exists
+	if (index != -1)
 		return;
-	else
-		products.push_back(new Product(id, name, brand, dept, q, p));
+	else {
+		products.push_back(Product(id, name, brand, dept, q, m, p));
+		
+		ofstream myfile;
+		string s = to_string(storeID);
+		myfile.open(s + "Inventory.txt", std::ios::app);
+		
+		myfile << id << "\n" << name << "\n";
+		myfile << brand << "\n" << dept << "\n";
+		myfile << q << "\n" << m << "\n" << p << "\n";
+	}
 }
 
 void Inventory::removeProduct(int id) {
@@ -60,22 +84,52 @@ void Inventory::removeProduct(int id) {
 	
 	if (index == -1)
 		return;
-	else
+	else {
 		products.erase(products.begin() + index);
+		
+		string s = to_string(storeID);
+		string filenameOld = s + "Inventory.txt";
+		string filenameNew = s + "InventoryNEW.txt";
+		ofstream myfile(filenameNew);
+		
+		for (int i = 0; i < products.size(); i++) {
+			myfile << (products.at(i)).getID() << "\n";
+			myfile << (products.at(i)).getName() << "\n";
+			myfile << (products.at(i)).getBrand() << "\n";
+			myfile << (products.at(i)).getDept() << "\n";
+			myfile << (products.at(i)).getQuantity() << "\n";
+			myfile << (products.at(i)).getMsrp() << "\n";
+			myfile << (products.at(i)).getPrice() << "\n";
+		}
+		myfile.close();
+		
+		if (myfile) {
+			remove(filenameOld.c_str());
+			rename(filenameNew.c_str(), filenameOld.c_str());
+		}
+	}
 }
 
 void Inventory::displayProduct(int id) {
 	int index = searchProduct(id);
 	
-	if (index == -1) {
+	if (index == -1)
 		cout << "There are no products matching that search term." << endl;
-	else {
-		cout << (products.at(index)).display() << endl;
-	}		
+	else
+		(products.at(index)).display();
 }
 
 void Inventory::displayProducts() {
-	for (std::vector<int>::iterator it = products.begin(); it != products.end(); ++it)
-    	cout << it.display() << endl;
+	for (int i = 0; i < products.size(); i++)
+    	(products.at(i)).display();
   	cout << '\n';
+}
+
+Product Inventory::getProduct(int id) {
+	int index = searchProduct(id);
+	
+	if (index == -1)
+		cout << "There are no products matching that search term." << endl;
+	else
+		return products.at(index);
 }

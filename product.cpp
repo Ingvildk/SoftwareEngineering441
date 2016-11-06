@@ -1,9 +1,8 @@
 
 #include <iostream>
-#include "Product.h"
+#include "product.h"
 using namespace std;
 
-using namespace std;
 
 /*
 *   Default Contructor -> intialising int values to ZERO
