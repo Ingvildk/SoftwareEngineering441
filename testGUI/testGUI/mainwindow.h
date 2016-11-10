@@ -58,8 +58,6 @@ private slots:
 
     void on_actionEdit_Items_triggered();
 
-    void on_pushButton_3_clicked();
-
     void on_actionEdit_Employees_triggered();
 
     void on_pushButtonCategory1_clicked();
