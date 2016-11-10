@@ -114,9 +114,6 @@ Inventory Store::getInventory() {
     return inventory;
 }
 
-
-
-
 void Store::addEmployee(int ID, const string Name, const string Address, const string Job, double sal, int Dob){
     if(searchEmployee(ID) == -1){
             employees.push_back(Employee(ID, Name, Address, Job, sal, Dob));
@@ -129,12 +126,10 @@ void Store::addEmployee(int ID, const string Name, const string Address, const s
             re_WriteFile << sal << "\n";
             re_WriteFile << Dob << "\n";
             re_WriteFile.close();
-
     }else{
         cout << "\n\n Employee with ID: " << ID << " already EXIST \n\n" << endl;
     }
 }
-
 
 
 void Store::removeEmployee(int ID, string empName ){

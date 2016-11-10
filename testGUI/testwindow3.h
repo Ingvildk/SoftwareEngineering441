@@ -15,8 +15,13 @@ public:
     explicit testwindow3(QWidget *parent = 0);
     ~testwindow3();
 
+private slots:
+
+    void on_fireButton_clicked();
+
 private:
     Ui::testwindow3 *ui;
+
 };
 
 #endif // TESTWINDOW3_H

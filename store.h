@@ -9,7 +9,7 @@ using namespace std;
 
 class Store {
     private:
-        std::vector<Employee> employees;   //list of employees
+        vector <Employee> employees;   //list of employees
         Inventory inventory;               //inventory for the store
         string name;                         //name of store
         string address;                      //current address of store

@@ -26,8 +26,6 @@ private slots:
 
     void on_pushButton2_clicked();
 
-    void on_pushButton3_clicked();
-
     void on_pushButton4_clicked();
 
     void on_pushButton5_clicked();
@@ -63,6 +61,9 @@ private slots:
     void on_pushButtonCategory1_clicked();
 
     void on_actionSwitch_User_triggered();
+
+    void on_pushButton_28_clicked();
+
 
 private:
     Ui::MainWindow *ui;
