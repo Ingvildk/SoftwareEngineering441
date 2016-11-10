@@ -10,8 +10,8 @@ using namespace std;
 
 class Company {
     private:
-        vector <Employee> employees;   //list of employees
-        vector <Store> stores;         //list of stores
+        static vector <Employee> employees;   //list of employees
+        static vector <Store> stores;         //list of stores
         string name;                       //name of company
         string address;                    //current address of company
         int ID;
@@ -42,6 +42,7 @@ class Company {
         void changeEmployee(string,string, string, double);
         int employeeSize();
         void readEmpFile();
+        void readinStores();
 };
 
 #endif
