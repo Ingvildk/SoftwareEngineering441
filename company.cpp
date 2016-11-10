@@ -53,7 +53,7 @@ void Company::readinStores(){
 	double salesTax;
 	if(ifstream("stores.txt")){
 		ifstream fin;
-		fin.open("stores.txt")
+		fin.open("stores.txt");
 	
 		while(!fin.eof()){
 			getline(fin,name);
@@ -70,7 +70,7 @@ void Company::readinStores(){
 				break;
 		}
 	
-		fin.close()
+		fin.close();
 	}else {
 		cerr << "ERROR: NO SUCH FILE EXISTS" << endl;
 	}
@@ -141,7 +141,7 @@ void Company::removeStore(string storeName) {
 				if(!fin.eof())
 					break;
 			}
-			fout.close()
+			fout.close();
 			fin.close();
 			
 			remove("stores.txt");
@@ -150,6 +150,7 @@ void Company::removeStore(string storeName) {
 	else {
 	   cout << "The Store does not exists for this company" << endl; 
 	}
+}
 }
 
 void Company::removeEmployee(string Name) {
@@ -197,7 +198,7 @@ void Company::changeStore(string Name, string Address, int ID) {
 				if(!fin.eof())
 					break;
 			}//end while loop
-			fout.close()
+			fout.close();
 			fin.close();
 			
 			remove("stores.txt");
@@ -230,11 +231,13 @@ void Company::displayStore(string storeName) {
 		cout << "Could not find store" << endl;
 	}
 }
+
 void Company::addEmployee(int ID, string Name, string Address, string Job, double Sal, int DOB) {
 	//Employee constructor accepts this format:
 		// (string ID, string Name, string Address, string Job, double Sal, int DOB)
 	employees.push_back(Employee(ID, Name, Address, Job, Sal, DOB));
 }
+
 void Company::changeEmployee(string Name, string Job, string Address, double Hours) {
 	int index = cSearchEmployee(Name);
 	employees[index].setName(Name);
@@ -259,6 +262,7 @@ void Company::displayEmployee(string Name) {
 		cout << "The employee could not be found" << endl;
 	}
 }
+
 void Company::displayEmployees() {
 	int len = employees.size();
 	// if the employees vector is zero
@@ -272,9 +276,11 @@ void Company::displayEmployees() {
 		}
 	}
 }
+
 void Company::setName(string Name) {
 	name = Name;
 }
+
 void Company::setAddress(string Address) {
 	address = Address;
 }	
