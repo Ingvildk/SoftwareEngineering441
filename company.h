@@ -18,6 +18,7 @@ class Company {
         void searchStore(string Name);
     public:
         Company(string Name, string Address, int Id);
+        Company();
         //~Company();
         string getName() { return name; }
         string getAddress() { return address; }

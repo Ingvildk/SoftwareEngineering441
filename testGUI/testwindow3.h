@@ -16,9 +16,8 @@ public:
     ~testwindow3();
 
 private slots:
-    void on_pushButton_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_fireButton_clicked();
 
 private:
     Ui::testwindow3 *ui;

@@ -40,6 +40,10 @@ Company::Company(string Name, string Address, int Id) {
 	*/
 }
 
+Company::Company() {
+	name = ""; address = ""; ID = 0;
+}
+
 void Company::readinStores(){
 	string name;
 	string address;
