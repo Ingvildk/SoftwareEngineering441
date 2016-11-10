@@ -1,7 +1,7 @@
 #include "../company.h"
 #include "testwindow3.h"
 #include "ui_testwindow3.h"
-//#include <QtDebug>
+#include <QDebug>
 
 testwindow3::testwindow3(QWidget *parent) :
     QDialog(parent),
@@ -18,6 +18,6 @@ testwindow3::~testwindow3()
 }
 void testwindow3::on_fireButton_clicked()
 {
-    QString temp = ui->IDEdit->toPlainText();
-   // qDebug() << "hello";
+    int temp = ui->IDEdit->toPlainText();
+    qDebug() << temp;
 }
