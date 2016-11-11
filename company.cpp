@@ -51,37 +51,37 @@ void Company::readinStores(){
 	int id;
 	string Tax;
 	double salesTax;
-	if(ifstream("stores.txt")){
-		ifstream fin;
-		fin.open("stores.txt");
-	
-		while(!fin.eof()){
-			getline(fin,name);
-			getline(fin,address);
-			getline(fin,idNum);
-			getline(fin,Tax);
+	ifstream fin;
+	fin.open("stores.txt");
 
-			int id = atoi(id.c_str());
-			double salesTax = atof(salesTax.c_str());
+	while(!fin.eof()){
+		getline(fin,name);
+		getline(fin,address);
+		getline(fin,idNum);
+		getline(fin,Tax);
+
+		int id = atoi(idNum.c_str());
+		double salesTax = atof(Tax.c_str());
+		
+		//Store::Store(string Name, string Address, int ID, double stax){
+		Store S(name,address,id,salesTax);
+		stores.push_back(S);
 			
-			stores.push_back(Store(name,address,id,salesTax));
-			
-			if(!fin.eof())
-				break;
-		}
-	
-		fin.close();
-	}else {
-		cerr << "ERROR: NO SUCH FILE EXISTS" << endl;
+		if(!fin.eof())
+			break;
 	}
+	
+	fin.close();
+
 }
 
 void Company::addStore(string Name, string Address, int Id, double Stax) {
 		
-		stores.push_back(Store(Name, Address, Id, Stax));
+		Store s(Name,Address,Id,Stax);
+		stores.push_back(s);
 		
 		ofstream fout;
-		fout.open("stores.txt", "a");
+		fout.open("stores.txt", std::ios::app);
 		
 		fout << Name << "\n";
 		fout << Address << "\n";
@@ -91,11 +91,11 @@ void Company::addStore(string Name, string Address, int Id, double Stax) {
 		fout.close();
 	}
 
-int Company::cSearchEmployee(string Emp) {
+int Company::cSearchEmployee(string Name) {
 	int test = stores.size();
 	int len = employees.size();
 	for (int i = 0; i < len; i++) {
-		if (employees[i].getName() == Emp) {
+		if (employees[i].getName() == Name) {
 			return i;
 		}
 	}
@@ -112,9 +112,9 @@ int Company::cSearchStore(string Name) {
 	return -1;
 }	
 
-void Company::removeStore(string storeName) {
-	if ( cSearchStore(storeName) != -1 ) { // return index 
-		int index = cSearchStore(storeName);
+void Company::removeStore(string Name) {
+	if ( cSearchStore(Name) != -1 ) { // return index 
+		int index = cSearchStore(Name);
 		stores.erase(stores.begin() + index);
 		//now update text file
 		if(ifstream("stores.txt")){
@@ -132,7 +132,7 @@ void Company::removeStore(string storeName) {
 				getline(fin,tempAddress);
 				getline(fin,tempID);
 				
-				if(tempName != storeName){
+				if(tempName != Name){
 					fout << tempName << "\n";
 					fout << tempAddress << "\n";
 					fout << tempID << "\n";
@@ -163,13 +163,13 @@ void Company::removeEmployee(string Name) {
 	}
 }
 
-void Company::changeStore(string Name, string Address, int ID) {
+void Company::changeStore(string Name, string Address, int Id) {
 	int index = cSearchStore(Name);
 	// if stores exist in vector
 	if ( index != -1) {
 		stores[index].setName(Name);
 		stores[index].setAddress(Address);
-		stores[index].setId(ID);
+		stores[index].setId(Id);
 		//now update txt file with same information
 		if(ifstream("stores.txt")){
 			ifstream fin;
@@ -186,7 +186,7 @@ void Company::changeStore(string Name, string Address, int ID) {
 				if(tempName == Name){
 					fout << Name << "\n";
 					fout << Address << "\n";
-					fout << ID << "\n";
+					fout << Id<< "\n";
 				}else{
 					getline(fin,tempName);
 					getline(fin,tempAddress);
@@ -217,14 +217,14 @@ void Company::displayCompany() {
 	cout << name << " " << address << " " << ID << " " << endl;
 }
 
-void Company::displayStore(string storeName) {
-	int num = cSearchStore(storeName);
+void Company::displayStore(string Name) {
+	int num = cSearchStore(Name);
 	// if num exist in stores vector
 	if ( num != -1) {
-		string Name = stores[num].getName();
+		string storeName = stores[num].getName();
 		string Address = stores[num].getAddress();
 		int ID = stores[num].getId();
-		cout << Name << endl;
+		cout << storeName << endl;
 		cout << Address << endl;
 		cout << ID << endl;				
 	}else {
@@ -235,7 +235,8 @@ void Company::displayStore(string storeName) {
 void Company::addEmployee(int ID, string Name, string Address, string Job, double Sal, int DOB) {
 	//Employee constructor accepts this format:
 		// (string ID, string Name, string Address, string Job, double Sal, int DOB)
-	employees.push_back(Employee(ID, Name, Address, Job, Sal, DOB));
+	Employee e(ID,Name,Address,Job,Sal,DOB);
+	employees.push_back(e);
 }
 
 void Company::changeEmployee(string Name, string Job, string Address, double Hours) {
