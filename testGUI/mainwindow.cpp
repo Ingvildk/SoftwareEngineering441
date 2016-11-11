@@ -148,10 +148,6 @@ void MainWindow::on_actionEdit_Items_triggered()
     tw2->show();
 }
 
-<<<<<<< HEAD:testGUI/testGUI/mainwindow.cpp
-=======
-
->>>>>>> origin/master:testGUI/mainwindow.cpp
 void MainWindow::on_actionEdit_Employees_triggered()
 {
     tw3 = new testwindow3();
