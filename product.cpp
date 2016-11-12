@@ -26,13 +26,6 @@ Product::Product(int id, string Name, string Brand, string Dept, int q, double m
     price = p;
 }
 
-
-Product::~Product() {
-
-}
-
-
-
 void Product::setID(int id) {ID = id;}
 
 

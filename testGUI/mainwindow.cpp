@@ -128,7 +128,7 @@ void MainWindow::on_pushButtonQty_clicked()
 
 void MainWindow::on_pushButtonManualKey_clicked()
 {
-    ui->textBrowserTransaction->setPlainText("Hi Logan!");
+    ui->textBrowserTransaction->setPlainText("!");
 }
 
 void MainWindow::on_actionExit_triggered()
@@ -147,7 +147,6 @@ void MainWindow::on_actionEdit_Items_triggered()
     tw2 = new testwindow2();
     tw2->show();
 }
-
 
 void MainWindow::on_actionEdit_Employees_triggered()
 {

@@ -19,7 +19,6 @@ private:
 public:
 	Product();
 	Product(int id, string Name, string Brand, string Dept, int q, double m, double p);
-	~Product();
 	void setID(int id);
 	void setName(string Name);
 	void setBrand(string Brand);

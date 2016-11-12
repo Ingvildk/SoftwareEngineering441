@@ -4,6 +4,10 @@
 
 using namespace std;
 
+Inventory::Inventory() {
+	storeID = 0;	
+}
+
 Inventory::Inventory(int store) {
 	storeID = store;	
 	string line;
@@ -61,21 +65,48 @@ int Inventory::searchProduct(int id) {
 	return -1;
 }
 
+void Inventory::addToFile(Product p) {
+	ofstream myfile;
+	string s = to_string(storeID);
+	myfile.open(s + "Inventory.txt", std::ios::app);
+	
+	myfile << p.getID() << "\n" << p.getName() << "\n";
+	myfile << p.getBrand() << "\n" << p.getDept() << "\n";
+	myfile << p.getQuantity() << "\n" << p.getMsrp() << "\n" << p.getPrice() << "\n";
+}
+
+void Inventory::removeFromFile() {
+	string s = to_string(storeID);
+	string filenameOld = s + "Inventory.txt";
+	string filenameNew = s + "InventoryNEW.txt";
+	ofstream myfile(filenameNew);
+		
+	for (int i = 0; i < products.size(); i++) {
+		myfile << (products.at(i)).getID() << "\n";
+		myfile << (products.at(i)).getName() << "\n";
+		myfile << (products.at(i)).getBrand() << "\n";
+		myfile << (products.at(i)).getDept() << "\n";
+		myfile << (products.at(i)).getQuantity() << "\n";
+		myfile << (products.at(i)).getMsrp() << "\n";
+		myfile << (products.at(i)).getPrice() << "\n";
+	}
+	myfile.close();
+	
+	if (myfile) {
+		remove(filenameOld.c_str());
+		rename(filenameNew.c_str(), filenameOld.c_str());
+	}	
+}
+
 void Inventory::addProduct(int id, string name, string brand, string dept, int q, double m, double p) {
 	int index = searchProduct(id);
 	
 	if (index != -1)
 		return;
 	else {
-		products.push_back(Product(id, name, brand, dept, q, m, p));
-		
-		ofstream myfile;
-		string s = to_string(storeID);
-		myfile.open(s + "Inventory.txt", std::ios::app);
-		
-		myfile << id << "\n" << name << "\n";
-		myfile << brand << "\n" << dept << "\n";
-		myfile << q << "\n" << m << "\n" << p << "\n";
+		Product product = Product(id, name, brand, dept, q, m, p);
+		products.push_back(product);
+		addToFile(product);
 	}
 }
 
@@ -85,28 +116,8 @@ void Inventory::removeProduct(int id) {
 	if (index == -1)
 		return;
 	else {
-		products.erase(products.begin() + index);
-		
-		string s = to_string(storeID);
-		string filenameOld = s + "Inventory.txt";
-		string filenameNew = s + "InventoryNEW.txt";
-		ofstream myfile(filenameNew);
-		
-		for (int i = 0; i < products.size(); i++) {
-			myfile << (products.at(i)).getID() << "\n";
-			myfile << (products.at(i)).getName() << "\n";
-			myfile << (products.at(i)).getBrand() << "\n";
-			myfile << (products.at(i)).getDept() << "\n";
-			myfile << (products.at(i)).getQuantity() << "\n";
-			myfile << (products.at(i)).getMsrp() << "\n";
-			myfile << (products.at(i)).getPrice() << "\n";
-		}
-		myfile.close();
-		
-		if (myfile) {
-			remove(filenameOld.c_str());
-			rename(filenameNew.c_str(), filenameOld.c_str());
-		}
+		products.erase(products.begin() + index);		
+		removeFromFile();
 	}
 }
 
@@ -123,6 +134,28 @@ void Inventory::displayProducts() {
 	for (int i = 0; i < products.size(); i++)
     	(products.at(i)).display();
   	cout << '\n';
+}
+
+void Inventory::addQuantity(int id, int quantity) {
+	int index = searchProduct(id);
+	
+	if (index == -1)
+		return;
+	else {
+		products.at(index).setQuantity(products.at(index).getQuantity() + quantity);
+		removeFromFile();
+	}		
+}
+
+void Inventory::removeQuantity(int id, int quantity) {
+	int index = searchProduct(id);
+	
+	if (index == -1 || ((products.at(index)).getQuantity() - quantity < 0))
+		return;
+	else {
+		products.at(index).setQuantity(products.at(index).getQuantity() - quantity);
+		removeFromFile();
+	}		
 }
 
 Product Inventory::getProduct(int id) {

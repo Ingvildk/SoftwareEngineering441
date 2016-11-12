@@ -15,31 +15,31 @@ class Company {
         string name;                       //name of company
         string address;                    //current address of company
         int ID;
-        void searchStore(string Name);
+        //void searchStore(string Name);
     public:
         Company(string Name, string Address, int Id);
         Company();
         //~Company();
         string getName() { return name; }
         string getAddress() { return address; }
-        void addStore(string, string, int, double);
-        void removeStore(string);
-        void changeStore(string, string, int);
-        void displayStore(string);
+        void addStore(string Name, string Address, int Id, double Stax);
+        void removeStore(string Name);
+        void changeStore(string Name, string Address, int Id);
+        void displayStore(string Name);
         void displayStores();
-        void addEmployee(int, string, string, string, double, int);
-        void removeEmployee(string);
-        void changeEmployee(string, string, double);
-        void displayEmployee(string);
+        void addEmployee(int ID, string Name, string Address, string Job, double Sal, int DOB);
+        void removeEmployee(string Name);
+        //void changeEmployee(string, string, double);
+        void displayEmployee(string Name);
         void displayEmployees();
-        void setName(string);
-        void setAddress(string);
-        void setId(int);
+        void setName(string Name);
+        void setAddress(string Address);
+        void setId(int id);
         int getId();
-        int cSearchStore(string);
-        int cSearchEmployee(string);
+        int cSearchStore(string Name);
+        int cSearchEmployee(string Name);
         void displayCompany();
-        void changeEmployee(string,string, string, double);
+        void changeEmployee(string Name,string Job, string Address, double Hours);
         int employeeSize();
         void readEmpFile();
         void readinStores();
