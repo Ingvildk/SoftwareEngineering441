@@ -161,8 +161,9 @@ void Inventory::removeQuantity(int id, int quantity) {
 Product Inventory::getProduct(int id) {
 	int index = searchProduct(id);
 	
-	if (index == -1)
+	if (index == -1){
 		cout << "There are no products matching that search term." << endl;
-	else
+		return products.at(0); //need a return here even though its the wrong product
+	}else
 		return products.at(index);
 }
