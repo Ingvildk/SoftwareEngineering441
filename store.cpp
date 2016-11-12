@@ -17,6 +17,8 @@ Store::Store(string Name, string Address, int ID, double stax){
     name = Name;
     address = Address;
     salesTax = stax;
+    Inventory I(id);
+    inventory = I;
 }
 
 
