@@ -60,8 +60,6 @@ private slots:
 
     void on_pushButtonCategory1_clicked();
 
-    void on_actionSwitch_User_triggered();
-
     void on_pushButton_28_clicked();
 
 

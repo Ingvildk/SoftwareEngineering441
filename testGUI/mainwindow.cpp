@@ -166,12 +166,6 @@ void MainWindow::on_pushButtonCategory1_clicked()
 
 }
 
-void MainWindow::on_actionSwitch_User_triggered()
-{
-    ls = new LoginScreen();
-    ls->show();
-}
-
 void MainWindow::on_pushButton_28_clicked()
 {
 
