@@ -35,6 +35,10 @@ Inventory::Inventory(int store) {
         }
         myfile.close();
     }
+    else{
+        std::ofstream myfile(s + "Inventory.txt");
+        myfile.close();
+    }
 }
 
 int Inventory::searchProduct(std::string s) {
@@ -67,13 +71,14 @@ void Inventory::addProduct(int id, std::string name, std::string brand, std::str
     else {
         products.push_back(Product(id, name, brand, dept, q, m, p));
 
-        std::ofstream myfile;
         std::string s = std::to_string(storeID);
-        myfile.open(s + "Inventory.txt", std::ios::app);
-
+        std::ofstream myfile;
+        s.append("Inventory.txt");
+        myfile.open(s, std::ios::app);
         myfile << id << "\n" << name << "\n";
         myfile << brand << "\n" << dept << "\n";
         myfile << q << "\n" << m << "\n" << p << "\n";
+        myfile.close();
     }
 }
 
