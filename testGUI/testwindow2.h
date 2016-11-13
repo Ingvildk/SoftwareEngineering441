@@ -2,6 +2,8 @@
 #define TESTWINDOW2_H
 
 #include <QDialog>
+#include <QString>
+#include "inventory.h"
 
 namespace Ui {
 class testwindow2;
@@ -15,9 +17,13 @@ public:
     explicit testwindow2(QWidget *parent = 0);
     ~testwindow2();
 
+private slots:
+    void on_pushButtonLoadInventory_clicked();
+
 private:
     Ui::testwindow2 *ui;
     void fillTable();
+    Inventory *inv;
 };
 
 #endif // TESTWINDOW2_H

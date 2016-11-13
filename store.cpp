@@ -4,14 +4,11 @@
 #include <cstdlib>
 #include <string>
 
-
 using namespace std;
-
 
 Store::Store(){
     id = 0;
     salesTax = 0.0;
-    name = address = "Default";
 }
 
 

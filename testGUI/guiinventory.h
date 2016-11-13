@@ -1,0 +1,4 @@
+#ifndef GUIINVENTORY_H
+#define GUIINVENTORY_H
+
+#endif // GUIINVENTORY_H

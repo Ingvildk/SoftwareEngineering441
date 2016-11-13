@@ -43,6 +43,13 @@ void MainWindow::on_pushButton2_clicked()
     ui->lcdNumber->display(getVal(digits, current));
 }
 
+void MainWindow::on_pushButton3_clicked()
+{
+    int current;
+    current = ui->lcdNumber->intValue();
+    int digits = 3;
+    ui->lcdNumber->display(getVal(digits, current));
+}
 
 void MainWindow::on_pushButton4_clicked()
 {
@@ -148,10 +155,6 @@ void MainWindow::on_actionEdit_Items_triggered()
     tw2->show();
 }
 
-<<<<<<< HEAD:testGUI/testGUI/mainwindow.cpp
-=======
-
->>>>>>> origin/master:testGUI/mainwindow.cpp
 void MainWindow::on_actionEdit_Employees_triggered()
 {
     tw3 = new testwindow3();

@@ -1,94 +1,96 @@
-Transaction::Transaction() {
+#include "transaction.h"
+#include <fstream>
+#include <string>
 
-}
-
-Transaction::~Transaction() {
+Transaction::Transaction(double salesTax) {
+	tax = salesTax;
+	totalTax = 0;
+	sum = 0;
+	string line;
 	
-}
-
-void Transaction::newReturn(items) {
-	//add item(s) to inv
-}
-/*
-void Transaction::newSale(items) {
-	double sum = 0;
-	double total;
-	double tax = getSalesTax();
-	for (int i = 0; i < items.length(); i++) {
-		sum += getItemPrice(i);
+	ifstream myfile("Transaction.txt");
+	if (myfile.is_open()) {
+		getline(myfile, line);
+		if (line != "")
+			receipt = stoi(line);
 	}
-	tax = (tax)* sum;
-	total = tax + sum;
-	cout << "Sum: " << sum << endl; //replace by outside function
-	cout << "Tax: " << tax << endl; //replace by outside display function
-	cout << "Total: " << total << endl; //replace by outside function
-}
-*/
-/*
-void addToCart(int);//add product to shopping cart vector
-void removeFromCart(int);//remove product from shopping cart vector
-void clearCart();//delete shopping cart contents
-void checkout();//sale is complete
-*/
-void Transaction::addToCart(int ID){
-	shoppingCart.push_back(ID);
+	myfile.close();
 }
 
-void Transaction::removeFromCart(int ID){
-	for(int i = 0; i < shoppingCart.length(); i++){
-		if(ID == shoppingCart[i]){
-			shoppingCart.erase(i);
-		}else
-			cerr << "ERROR: item is not in Cart" << endl;
+int Transaction::searchProduct(int id) {
+	for (int i = 0; i < shoppingCart.size(); i++) {
+		if ((shoppingCart.at(i)).getID() == id)
+			return i;
+	}
+	
+	return -1;
+}
+
+void Transaction::addToCart(Product p) {
+	int index = searchProduct(p.getID());
+	
+	if (index != -1) {
+		int q1 = shoppingCart.at(index).getQuantity();
+		int q2 = p.getQuantity();
+		shoppingCart.at(index).setQuantity(q1 + q2);
+		int price1 = p.getPrice() * p.getQuantity();
+		int price2 = shoppingCart.at(index).getPrice();
+		shoppingCart.at(index).setPrice(price1 + price2);
+		sum = sum + price1 + price2;
+		totalTax = sum * tax;
+	}
+	else {
+		p.setPrice(p.getPrice() * p.getQuantity());
+		shoppingCart.push_back(p);
+		sum += p.getPrice();
+		totalTax = sum * tax;
 	}
 }
 
-void Transaction::clearCart(){
+void Transaction::removeFromCart(Product p) {
+	int index = searchProduct(p.getID());
+	
+	if (index == -1)
+		return;
+	else if (shoppingCart.at(index).getQuantity() - p.getQuantity() <= 0)
+		shoppingCart.erase(shoppingCart.begin() + index);
+	else {
+		int q1 = shoppingCart.at(index).getQuantity();
+		int q2 = p.getQuantity();
+		shoppingCart.at(index).setQuantity(q1 - q2);
+		int price1 = p.getPrice() * p.getQuantity();
+		int price2 = shoppingCart.at(index).getPrice();
+		shoppingCart.at(index).setPrice(price2 - price1);
+		sum = sum - price1;
+		totalTax = sum * tax;
+	}
+}
+
+void Transaction::clearCart() {
+	sum = 0;
+	totalTax = 0;
 	shoppingCart.clear();
 }
 
-void Transaction::checkout(){
-	// No payment handled yet, but that would also be called from this function
-	// 1. Calculate Total
-	cout << "Amount Due: " << calcTotal() << endl;// <- works off of shopping cart
-	// 2. Update Inv
-	updateQuantity();
-	// 3. Update Sales Statistics
-	updateStatistics(calcTotal());
-	//Last step in check out process so we will have it clear the cart
-	clearCart();
-}
-
-void Transaction::displayCart(){
-	for(int i = 0; i < shoppingCart.length();i++){
-		//inv->getProduct(shoppingCart[i]).getName()
-		//i forget how to work with pointer pointing to classes ,but this is how it will work
+void Transaction::checkout() {
+	string s = to_string(receipt);
+	
+	ofstream myfile(s + "Receipt.txt");
+	
+	myfile << "Department\t" << "Name\t" << "ID\t" << "Price\t" << "Quantity\n\n";
+	
+	for (int i = 0; i < shoppingCart.size(); i++) {
+		myfile << (shoppingCart.at(i)).getDept() << "\t\t";
+		myfile << (shoppingCart.at(i)).getName() << "\t";
+		myfile << (shoppingCart.at(i)).getID() << "\t";
+		myfile << (shoppingCart.at(i)).getPrice() << "\t\t";
+		myfile << (shoppingCart.at(i)).getQuantity() << "\n";
 	}
-}
-
-int Transaction::getItemNumber() {//to be replaced by an outside function(think scanner)
-	int temp;
-	cout >> "Enter item number: ";
-	cin << temp;
-	return temp;
-}
-
-int Transaction::getItemPrice(int itemnum) {//item price needs to be a double? especially if sales tax is applied
-	//item id is passed to this function. Need to access inventory and return price of product
+		
+	myfile << "\nSubtotal: " << sum << "\n";
+	myfile << "Tax: " << totalTax << "\n";
+	myfile << "Total: " << sum + totalTax;
+	myfile.close();
 	
-}
-
-//Sums up shopping cart by going through cart and repeatedly calling getItemPrice
-double Transaction::calcTotal() {
-
-}
-
-int Transaction::updateQuantity() { // goes through shopping cart to get information
-
-}
-
-//for now we will just keep track of total sales
-double Transaction::updateStatistics(double) { 
-	
-	
+	receipt += 1;
 }
