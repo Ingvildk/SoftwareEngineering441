@@ -1,8 +1,11 @@
 #include "transaction.h"
+#include "product.h"
 #include <fstream>
 #include <string>
 
 Transaction::Transaction(double salesTax) {
+	Product moch;
+	shoppingCart.push_back(moch);
 	tax = salesTax;
 	totalTax = 0;
 	sum = 0;
@@ -19,6 +22,8 @@ Transaction::Transaction(double salesTax) {
 
 int Transaction::searchProduct(int id) {
 	for (int i = 0; i < shoppingCart.size(); i++) {
+		// shoppingcart is a vector property of the transaction class
+		// contains Product objects
 		if ((shoppingCart.at(i)).getID() == id)
 			return i;
 	}
