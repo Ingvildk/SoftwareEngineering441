@@ -2,6 +2,10 @@
 #include <iostream>
 #include <fstream>
 
+Inventory::Inventory(){
+
+}
+
 Inventory::Inventory(int store) {
     storeID = store;
     std::string line;
