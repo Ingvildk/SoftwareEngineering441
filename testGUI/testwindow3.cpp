@@ -18,25 +18,27 @@ testwindow3::~testwindow3()
 }
 void testwindow3::on_fireButton_clicked()
 {
-    int temp = ui->IDEdit->toPlainText();
+    QString temp = ui->IDEdit->toPlainText();
+    temp.toInt();
     //singleton company will call the removeEmployee
-    Company.removeEmployee(temp);
+
+    //removeEmployee(temp);
     qDebug() << temp;
 }
 
 
-
 void testwindow3::on_hireButton_clicked()
 {
-    int id = ui->IDEdit->toPlainText();
+    QString id = ui->IDEdit->toPlainText();
+    id.toDouble();
     QString name = ui->nameEdit->toPlainText();
     QString address = ui->addressEdit->toPlainText();
     QString job = ui->jobEdit->toPlainText();
-    double sal = ui->salEdit->toPlainText();
-    double dob = ui->DOBEdit->toPlainText();
+    QString sal = ui->salEdit->toPlainText();
+    sal.toDouble();
+    QString dob = ui->DOBEdit->toPlainText();
+    dob.toDouble();
     //singleton company will call the removeEmployee
     // addEmployee(int, string, string, string, double, int)
-    Company.addEmployee(id, name, address, job, sal, dob);
+    //addEmployee(id, name, address, job, sal, dob);
 }
-
-
