@@ -8,7 +8,7 @@ using namespace std;
 
 class Product {
 private:
-    	int ID;            // product ID
+  int ID;            // product ID
 	string name;     //name of the product
 	string brand;    //brand of the product
 	string dept;     //department the product is in

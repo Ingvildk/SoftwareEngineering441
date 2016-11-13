@@ -43,6 +43,13 @@ void MainWindow::on_pushButton2_clicked()
     ui->lcdNumber->display(getVal(digits, current));
 }
 
+void MainWindow::on_pushButton3_clicked()
+{
+    int current;
+    current = ui->lcdNumber->intValue();
+    int digits = 3;
+    ui->lcdNumber->display(getVal(digits, current));
+}
 
 void MainWindow::on_pushButton4_clicked()
 {
@@ -157,12 +164,6 @@ void MainWindow::on_actionEdit_Employees_triggered()
 void MainWindow::on_pushButtonCategory1_clicked()
 {
 
-}
-
-void MainWindow::on_actionSwitch_User_triggered()
-{
-    ls = new LoginScreen();
-    ls->show();
 }
 
 void MainWindow::on_pushButton_28_clicked()

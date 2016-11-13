@@ -137,6 +137,31 @@ void Inventory::displayProducts() {
 }
 
 void Inventory::addQuantity(int id, int quantity) {
+<<<<<<< HEAD
+	int index = searchProduct(id);
+	
+	if (index == -1)
+		return;
+	else {
+		products.at(index).setQuantity(products.at(index).getQuantity() + quantity);
+		removeFromFile();
+	}		
+}
+
+void Inventory::removeQuantity(int id, int quantity) {
+	int index = searchProduct(id);
+	
+	if (index == -1 || ((products.at(index)).getQuantity() - quantity < 0))
+		return;
+	else {
+		products.at(index).setQuantity(products.at(index).getQuantity() - quantity);
+		removeFromFile();
+	}		
+}
+
+Product Inventory::getProduct(int id) {
+=======
+>>>>>>> origin/master
 	int index = searchProduct(id);
 	
 	if (index == -1)

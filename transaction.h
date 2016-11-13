@@ -8,7 +8,11 @@
 class Transaction {
     private:
 		Product item;
+<<<<<<< HEAD
 		std::vector<Product> shoppingCart;
+=======
+		static vector <Product> shoppingCart;
+>>>>>>> origin/master
         double tax;
         double totalTax;
         double sum;

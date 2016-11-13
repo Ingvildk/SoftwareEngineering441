@@ -18,18 +18,27 @@ SOURCES += main.cpp\
     testwindow2.cpp \
     button1_window.cpp \
     testwindow3.cpp \
-    loginscreen.cpp
+    product.cpp \
+    inventory.cpp \
+    company.cpp \
+    store.cpp \
+    employee.cpp \
+    transaction.cpp
 
 HEADERS  += mainwindow.h \
     testwindow.h \
     testwindow2.h \
     button1_window.h \
     testwindow3.h \
-    loginscreen.h
+    product.h \
+    inventory.h \
+    company.h \
+    store.h \
+    employee.h \
+    transaction.h
 
 FORMS    += mainwindow.ui \
     testwindow.ui \
     testwindow2.ui \
     button1_window.ui \
-    testwindow3.ui \
-    loginscreen.ui
+    testwindow3.ui
