@@ -6,7 +6,7 @@
 
 class Inventory {
     private:
-        std::vector<Product> products;     //list of products
+        static vector <Product> products;     //list of products
         int storeID;
         int searchProduct(string);
         int searchProduct (int);

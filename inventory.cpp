@@ -137,6 +137,31 @@ void Inventory::displayProducts() {
 }
 
 void Inventory::addQuantity(int id, int quantity) {
+<<<<<<< HEAD
+	int index = searchProduct(id);
+	
+	if (index == -1)
+		return;
+	else {
+		products.at(index).setQuantity(products.at(index).getQuantity() + quantity);
+		removeFromFile();
+	}		
+}
+
+void Inventory::removeQuantity(int id, int quantity) {
+	int index = searchProduct(id);
+	
+	if (index == -1 || ((products.at(index)).getQuantity() - quantity < 0))
+		return;
+	else {
+		products.at(index).setQuantity(products.at(index).getQuantity() - quantity);
+		removeFromFile();
+	}		
+}
+
+Product Inventory::getProduct(int id) {
+=======
+>>>>>>> origin/master
 	int index = searchProduct(id);
 	
 	if (index == -1)
@@ -161,8 +186,9 @@ void Inventory::removeQuantity(int id, int quantity) {
 Product Inventory::getProduct(int id) {
 	int index = searchProduct(id);
 	
-	if (index == -1)
+	if (index == -1){
 		cout << "There are no products matching that search term." << endl;
-	else
+		return products.at(0); //need a return here even though its the wrong product
+	}else
 		return products.at(index);
 }
