@@ -120,7 +120,7 @@ void Inventory::removeProduct(int id) {
 		removeFromFile();
 	}
 }
-
+/*
 void Inventory::displayProduct(int id) {
 	int index = searchProduct(id);
 	
@@ -129,7 +129,7 @@ void Inventory::displayProduct(int id) {
 	else
 		(products.at(index)).display();
 }
-
+*/
 void Inventory::displayProducts() {
 	for (int i = 0; i < products.size(); i++)
     	(products.at(i)).display();
@@ -137,7 +137,6 @@ void Inventory::displayProducts() {
 }
 
 void Inventory::addQuantity(int id, int quantity) {
-<<<<<<< HEAD
 	int index = searchProduct(id);
 	
 	if (index == -1)
@@ -160,18 +159,17 @@ void Inventory::removeQuantity(int id, int quantity) {
 }
 
 Product Inventory::getProduct(int id) {
-=======
->>>>>>> origin/master
 	int index = searchProduct(id);
 	
 	if (index == -1)
-		return;
+		Product error;
+		return error;
 	else {
 		products.at(index).setQuantity(products.at(index).getQuantity() + quantity);
 		removeFromFile();
 	}		
 }
-
+/*
 void Inventory::removeQuantity(int id, int quantity) {
 	int index = searchProduct(id);
 	
@@ -192,3 +190,4 @@ Product Inventory::getProduct(int id) {
 	}else
 		return products.at(index);
 }
+*/
