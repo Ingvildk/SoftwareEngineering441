@@ -8,7 +8,7 @@
 class Transaction {
     private:
 		Product item;
-		std::vector<Product> shoppingCart;
+		static vector <Product> shoppingCart;
         double tax;
         double totalTax;
         double sum;
