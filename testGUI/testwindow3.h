@@ -20,7 +20,7 @@ private slots:
     void on_fireButton_clicked();
     void on_hireButton_clicked();
 
-    void on_hireButton_clicked();
+    //void on_hireButton_clicked();
 
 private:
     Ui::testwindow3 *ui;
