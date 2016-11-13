@@ -56,8 +56,3 @@ Makefile*
 
 # QtCtreator CMake
 CMakeLists.txt.user*
-
-transaction.h
-transaction.h
-inventory.cpp
-testGUI/testwindow3.cpp

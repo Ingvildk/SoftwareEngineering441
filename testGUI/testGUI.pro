@@ -22,7 +22,8 @@ SOURCES += main.cpp\
     inventory.cpp \
     company.cpp \
     store.cpp \
-    employee.cpp
+    employee.cpp \
+    transaction.cpp
 
 HEADERS  += mainwindow.h \
     testwindow.h \
@@ -33,7 +34,8 @@ HEADERS  += mainwindow.h \
     inventory.h \
     company.h \
     store.h \
-    employee.h
+    employee.h \
+    transaction.h
 
 FORMS    += mainwindow.ui \
     testwindow.ui \

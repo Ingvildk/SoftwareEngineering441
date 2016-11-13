@@ -9,7 +9,7 @@
 Store::Store(){
     id = 0;
     salesTax = 0.0;
-    inventory = new Inventory();
+    inventory = new Inventory(id);
     readEmpFile();
 }
 
@@ -25,7 +25,7 @@ Store::Store(std::string Name, std::string Address, int ID, double stax){
 
 
 int Store::searchEmployee(int ID){
-    for (int empIndex = 0; empIndex < employees.size(); empIndex++) {
+    for (int empIndex = 0; (unsigned)empIndex < employees.size(); empIndex++) {
         if ((employees.at(empIndex)).getId() == ID){
             return empIndex;
         }
@@ -142,7 +142,7 @@ void Store::removeEmployee(int ID, std::string empName ){
         std::string filenameNew = "employeeNEW.txt";
         std::ofstream myfile(filenameNew);
 
-        for (int i = 0; i < employees.size(); i++) {
+        for (int i = 0; (unsigned)i < employees.size(); i++) {
             myfile << (employees.at(i)).getId() << "\n";
             myfile << (employees.at(i)).getName() << "\n";
             myfile << (employees.at(i)).getAddress() << "\n";
@@ -172,7 +172,7 @@ void Store::changeEmployee(int ID, std::string empName, std::string empAddress, 
         std::string filenameNew = "employeeNEW.txt";
         std::ofstream myfile(filenameNew);
 
-        for (int i = 0; i < employees.size(); i++) {
+        for (int i = 0; (unsigned)i < employees.size(); i++) {
             myfile << (employees.at(i)).getId() << "\n";
             myfile << (employees.at(i)).getName() << "\n";
             myfile << (employees.at(i)).getAddress() << "\n";
@@ -200,7 +200,7 @@ void Store::displayEmployee(int ID){
     }
 }
 void Store::displayEmployees(){
-    for(int i = 0; i < employees.size(); i++){
+    for(int i = 0; (unsigned)i < employees.size(); i++){
         employees.at(i).display();
     }
 }

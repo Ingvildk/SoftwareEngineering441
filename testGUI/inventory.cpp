@@ -2,10 +2,6 @@
 #include <iostream>
 #include <fstream>
 
-Inventory::Inventory(){
-
-}
-
 Inventory::Inventory(int store) {
     storeID = store;
     std::string line;
@@ -42,7 +38,7 @@ Inventory::Inventory(int store) {
 }
 
 int Inventory::searchProduct(std::string s) {
-    for (int i = 0; i < products.size(); i++) {
+    for (int i = 0; (unsigned)i < products.size(); i++) {
         if ((products.at(i)).getName() == s)
             return i;
         if ((products.at(i)).getBrand() == s)
@@ -55,7 +51,7 @@ int Inventory::searchProduct(std::string s) {
 }
 
 int Inventory::searchProduct(int id) {
-    for (int i = 0; i < products.size(); i++) {
+    for (int i = 0; (unsigned)i < products.size(); i++) {
         if ((products.at(i)).getID() == id)
             return i;
     }
@@ -94,7 +90,7 @@ void Inventory::removeProduct(int id) {
         std::string filenameNew = s + "InventoryNEW.txt";
         std::ofstream myfile(filenameNew);
 
-        for (int i = 0; i < products.size(); i++) {
+        for (int i = 0; (unsigned)i < products.size(); i++) {
             myfile << (products.at(i)).getID() << "\n";
             myfile << (products.at(i)).getName() << "\n";
             myfile << (products.at(i)).getBrand() << "\n";
@@ -122,7 +118,7 @@ void Inventory::displayProduct(int id) {
 }
 
 void Inventory::displayProducts() {
-    for (int i = 0; i < products.size(); i++)
+    for (int i = 0; (unsigned)i < products.size(); i++)
         (products.at(i)).display();
     std::cout << '\n';
 }
