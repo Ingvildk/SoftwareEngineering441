@@ -103,14 +103,17 @@ void Product::display() {
 
 std::string Product::getInfoAsString(){
     std::string tempstr;
-    std::ostringstream convert;
-    convert << ID;
-    tempstr = convert.str() + "\t" + name + "\t" + brand + "\t" + dept + "\t";
-    convert << quantity;
-    tempstr = tempstr + convert.str() + "\t";
-    convert << msrp;
-    tempstr = tempstr + convert.str() + "\t";
-    convert << price;
-    tempstr = tempstr + convert.str();
+    std::ostringstream convertID;
+    std::ostringstream convertQuantity;
+    std::ostringstream convertMSRP;
+    std::ostringstream convertPrice;
+    convertID << ID;
+    tempstr = convertID.str() + "\t" + name + "\t" + brand + "\t" + dept + "\t";
+    convertQuantity << quantity;
+    tempstr = tempstr + convertQuantity.str() + "\t";
+    convertMSRP << msrp;
+    tempstr = tempstr + convertMSRP.str() + "\t";
+    convertPrice << price;
+    tempstr = tempstr + convertPrice.str();
     return tempstr;
 }
