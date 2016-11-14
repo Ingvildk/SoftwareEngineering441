@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QString>
 #include "inventory.h"
+#include "store.h"
 
 namespace Ui {
 class testwindow2;

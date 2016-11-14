@@ -23,6 +23,17 @@ Store::Store(std::string Name, std::string Address, int ID, double stax){
     readEmpFile();
 }
 
+//Store::Store(int ID){
+//    inventory = new Inventory(ID);
+//    std::string line;
+//    std::string s = std::to_string(id);
+//    std::ifstream myfile(s + "Store.txt");
+//    if (!myfile.is_open()) {
+//        std::ofstream myfile2(s + "Store.txt");
+//        myfile2 << id << "\n" << name << "\n" << address << "\n" << salesTax << "/n";
+//        myfile2.close();
+//    }
+//}
 
 int Store::searchEmployee(int ID){
     for (int empIndex = 0; (unsigned)empIndex < employees.size(); empIndex++) {

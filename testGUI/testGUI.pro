@@ -23,7 +23,8 @@ SOURCES += main.cpp\
     company.cpp \
     store.cpp \
     employee.cpp \
-    transaction.cpp
+    transaction.cpp \
+    form_company.cpp
 
 HEADERS  += mainwindow.h \
     testwindow.h \
@@ -35,10 +36,12 @@ HEADERS  += mainwindow.h \
     company.h \
     store.h \
     employee.h \
-    transaction.h
+    transaction.h \
+    form_company.h
 
 FORMS    += mainwindow.ui \
     testwindow.ui \
     testwindow2.ui \
     button1_window.ui \
-    testwindow3.ui
+    testwindow3.ui \
+    form_company.ui
