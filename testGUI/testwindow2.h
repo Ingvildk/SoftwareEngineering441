@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <QString>
 #include "inventory.h"
+#include "store.h"
 
 namespace Ui {
 class testwindow2;
@@ -19,6 +20,8 @@ public:
 
 private slots:
     void on_pushButtonLoadInventory_clicked();
+
+    void on_pushButtonAddItem_clicked();
 
 private:
     Ui::testwindow2 *ui;

@@ -8,6 +8,9 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    c = new Company();
+    ui->label_Company->setText(QString::fromStdString(c->getName()));
+    delete c;
 }
 
 MainWindow::~MainWindow()

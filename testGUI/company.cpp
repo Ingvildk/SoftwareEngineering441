@@ -4,12 +4,37 @@
 #include <iostream>
 #include <algorithm>
 #include <vector>
+#include <fstream>
+
 //using namespace std;
+
+//Adding this constructor for loading company info from file -Dennis
+Company::Company() {
+    std::ifstream myfile("company.txt");
+    getline(myfile, name);
+    getline(myfile, address);
+    myfile.close();
+    ID = 0;
+}
+//***********************************************************-Dennis
 
 Company::Company(std::string Name, std::string Address, int Id) {
     name = Name;
     address = Address;
     ID = Id;
+
+    //Added this for auto create company.txt if it does not exist -Dennis
+    std::ifstream myfile("company.txt");
+    if(myfile.is_open()){
+        myfile.close();
+    }
+    else{
+        std::ofstream myfile("company.txt", std::ios::app);
+        myfile << name << "\n" << address << "\n";
+        myfile.close();
+    }
+    //************************************************************-Dennis
+
 
     /* ONLY NEEDED FOR MULTIPLE COMPANIES, WHICH WE HAVE NOT IMPLEMENTED YET
     //if company does already exist
@@ -40,9 +65,9 @@ Company::Company(std::string Name, std::string Address, int Id) {
     */
 }
 
-Company::Company() {
-    name = ""; address = ""; ID = 0;
-}
+//Company::Company() {
+//    name = ""; address = ""; ID = 0;
+//}
 
 void Company::readinStores(){
     std::string name;

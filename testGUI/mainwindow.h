@@ -7,6 +7,8 @@
 #include "button1_window.h"
 #include "testwindow3.h"
 #include "loginscreen.h"
+#include "form_company.h"
+#include "company.h"
 
 namespace Ui {
 class MainWindow;
@@ -72,6 +74,7 @@ private:
     button1_window *bw1;
     testwindow3 *tw3;
     LoginScreen *ls;
+    Company *c;
 };
 
 #endif // MAINWINDOW_H

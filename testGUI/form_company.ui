@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>testwindow2</class>
- <widget class="QDialog" name="testwindow2">
+ <class>form_company</class>
+ <widget class="QDialog" name="form_company">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>793</width>
-    <height>639</height>
+    <width>400</width>
+    <height>300</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Company Setup</string>
   </property>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>400</x>
-     <y>580</y>
+     <x>30</x>
+     <y>240</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -32,73 +32,60 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>25</x>
      <y>30</y>
-     <width>141</width>
-     <height>21</height>
+     <width>101</width>
+     <height>31</height>
     </rect>
    </property>
    <property name="text">
-    <string>Edit Inventory</string>
+    <string>Company:</string>
    </property>
   </widget>
-  <widget class="QTableWidget" name="tableWidget">
+  <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>40</x>
-     <y>80</y>
-     <width>661</width>
+     <x>25</x>
+     <y>100</y>
+     <width>55</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Address:</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>25</x>
+     <y>160</y>
+     <width>141</width>
+     <height>31</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>ID? What's this for??</string>
+   </property>
+  </widget>
+  <widget class="QTextEdit" name="textEdit_CompanyInput">
+   <property name="geometry">
+    <rect>
+     <x>90</x>
+     <y>30</y>
+     <width>271</width>
      <height>31</height>
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButtonAddItem">
+  <widget class="QTextEdit" name="textEdit_AddressInput">
    <property name="geometry">
     <rect>
-     <x>50</x>
-     <y>580</y>
-     <width>93</width>
-     <height>28</height>
+     <x>90</x>
+     <y>90</y>
+     <width>271</width>
+     <height>31</height>
     </rect>
-   </property>
-   <property name="text">
-    <string>Add Item</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_2">
-   <property name="geometry">
-    <rect>
-     <x>150</x>
-     <y>580</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Edit Item</string>
-   </property>
-  </widget>
-  <widget class="QTextBrowser" name="textBrowser">
-   <property name="geometry">
-    <rect>
-     <x>40</x>
-     <y>130</y>
-     <width>671</width>
-     <height>421</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButtonLoadInventory">
-   <property name="geometry">
-    <rect>
-     <x>260</x>
-     <y>580</y>
-     <width>93</width>
-     <height>28</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Load Inventory</string>
    </property>
   </widget>
  </widget>
@@ -107,7 +94,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>accepted()</signal>
-   <receiver>testwindow2</receiver>
+   <receiver>form_company</receiver>
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
@@ -123,7 +110,7 @@
   <connection>
    <sender>buttonBox</sender>
    <signal>rejected()</signal>
-   <receiver>testwindow2</receiver>
+   <receiver>form_company</receiver>
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">

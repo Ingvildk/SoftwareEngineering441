@@ -19,6 +19,7 @@ class Store {
     public:
         Store();
         Store(std::string Name, std::string Address, int ID, double stax);
+//        Store(int ID);
         ~Store();
         void readEmpFile();
         void setName(std::string Name);
