@@ -36,6 +36,7 @@ class Store {
         void changeEmployee(int ID, std::string empName, std::string empAddress, int empDob);
         void displayEmployee(int ID);
         void displayEmployees();
+        Employee returnEmployee(int);
 
 };
 

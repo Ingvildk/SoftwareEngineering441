@@ -72,6 +72,9 @@ void Store::readEmpFile(){
             getline(empFile, word);
             int Dob = atoi(word.c_str());
             employees.push_back(Employee(ID, Name, Address, Job, sal, Dob));
+            Employee temp = Employee(ID, Name, Address, Job, sal, Dob);
+            std::cout << "Display employees"<< std::endl;
+            temp.display();
         }
         empFile.close();
 
@@ -214,6 +217,15 @@ void Store::displayEmployees(){
     for(int i = 0; (unsigned)i < employees.size(); i++){
         employees.at(i).display();
     }
+}
+
+Employee Store::returnEmployee(int ID) {
+    int index = searchEmployee(ID);
+    Employee emp = employees[index];
+    setName(emp.getName());
+    setAddress(emp.getAddress());
+    setId(emp.getId());
+    return emp;
 }
 
 
