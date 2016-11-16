@@ -1,1 +1,1 @@
-1 meat Tine meat 100 0.2 10 1 crackers Wasa cracers 50 0.2 3 milk Soya milk 0.5 20
+1 meat Tine meat 100 0.2 10 2 crackers Wasa crackers 50 0.2 3 milk Soy milk 0.5 20

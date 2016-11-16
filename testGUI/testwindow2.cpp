@@ -33,3 +33,8 @@ void testwindow2::on_pushButtonAddItem_clicked()
 {
     //new window to add a new item number.  Create a form for the user to fill out to get necessary data.
 }
+
+void testwindow2::on_tableWidget_activated(const QModelIndex &index)
+{
+
+}

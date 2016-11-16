@@ -23,6 +23,8 @@ private slots:
 
     void on_pushButtonAddItem_clicked();
 
+    void on_tableWidget_activated(const QModelIndex &index);
+
 private:
     Ui::testwindow2 *ui;
     void fillTable();
