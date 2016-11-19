@@ -9,6 +9,9 @@
 #include "loginscreen.h"
 #include "form_company.h"
 #include "company.h"
+#include "inventory.h" //to be replaced by store.h
+#include "product.h"
+#include "transaction.h"
 
 namespace Ui {
 class MainWindow;
@@ -67,6 +70,8 @@ private slots:
 
     void on_pushButton3_clicked();
 
+    void on_pushButtonRemove_clicked();
+
 private:
     Ui::MainWindow *ui;
     testwindow *tw;
@@ -75,6 +80,9 @@ private:
     testwindow3 *tw3;
     LoginScreen *ls;
     Company *c;
+    Inventory *i; //Store *s;
+    Transaction *t;
+    int quantity;
 };
 
 #endif // MAINWINDOW_H

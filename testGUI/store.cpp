@@ -19,7 +19,7 @@ Store::Store(std::string Name, std::string Address, int ID, double stax){
     name = Name;
     address = Address;
     salesTax = stax;
-    inventory = new Inventory(ID);
+    inventory = new Inventory(id);
     readEmpFile();
 }
 
@@ -35,6 +35,10 @@ Store::Store(std::string Name, std::string Address, int ID, double stax){
 //    }
 //}
 
+Store::~Store() {
+    delete inventory;
+}
+
 int Store::searchEmployee(int ID){
     for (int empIndex = 0; (unsigned)empIndex < employees.size(); empIndex++) {
         if ((employees.at(empIndex)).getId() == ID){
@@ -43,10 +47,6 @@ int Store::searchEmployee(int ID){
     }
 
     return -1;
-
-}
-
-Store::~Store(){
 
 }
 
