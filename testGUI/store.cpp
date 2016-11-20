@@ -60,8 +60,9 @@ void Store::readEmpFile(){
 
     if(!empFile.is_open()){
         std::cout << "There is no such file to READ\n" << std::endl;
-        exit(EXIT_FAILURE);
-    }else{
+        //exit(EXIT_FAILURE);
+    }
+    else{
         while(getline(empFile, word)){
             int ID = atoi(word.c_str());
             getline(empFile, Name);
@@ -125,8 +126,8 @@ double Store::getSalesTax(){
 }
 
 
-Inventory* Store::getInventory() {
-    return inventory;
+Inventory Store::getInventory() {
+    return *inventory;
 }
 
 void Store::addEmployee(int ID, const std::string Name, const std::string Address, const std::string Job, double sal, int Dob){

@@ -10,7 +10,7 @@
 
 //Adding this constructor for loading company info from file -Dennis
 Company::Company() {
-    std::ifstream myfile("company.txt");
+    std::ifstream myfile("company.txt"); //change to QFile
     getline(myfile, name);
     getline(myfile, address);
     myfile.close();

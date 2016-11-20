@@ -12,6 +12,7 @@
 #include "inventory.h" //to be replaced by store.h
 #include "product.h"
 #include "transaction.h"
+#include "store.h"
 
 namespace Ui {
 class MainWindow;
@@ -82,6 +83,7 @@ private:
     Company *c;
     Inventory *i; //Store *s;
     Transaction *t;
+    Store *s;
     int quantity;
 };
 

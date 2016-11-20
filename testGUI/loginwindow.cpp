@@ -1,7 +1,7 @@
 #include "loginwindow.h"
 #include "ui_loginwindow.h"
-#include <QFile>;
-#include <QTextStream>;
+#include <QFile>
+#include <QTextStream>
 
 LoginWindow::LoginWindow(QWidget *parent) :
     QMainWindow(parent),

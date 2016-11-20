@@ -4,6 +4,9 @@
 #include "product.h"
 #include <vector>
 #include <iostream>
+#include <QFile>
+#include <QTextStream>
+#include <QString>
 
 class Transaction {
     private:

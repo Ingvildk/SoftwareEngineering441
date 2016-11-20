@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent) :
     c = new Company();
     i = new Inventory(1); //s = new Store();
     t = new Transaction(0.0); //(s->getSalesTax)
+    s = new Store();
     ui->label_Company->setText(QString::fromStdString(c->getName()));
     delete c;
 }
@@ -20,6 +21,7 @@ MainWindow::~MainWindow()
     delete ui;
     delete i; //delete s;
     delete t;
+    delete s;
 }
 
 QString MainWindow::getVal(int digits, int current)
