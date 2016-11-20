@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     LoginWindow w;
     w.show();
-<<<<<<< HEAD
+
     std::ifstream myfile;
     myfile.open("company.txt");
     //possible listener for this if statement. Currently does not work to serve as file detection -Dennis
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
         fc.setWindowModality(Qt::ApplicationModal);
         fc.show();
     //}
-=======
+
 //    MainWindow w;
 //    w.show();
 //    std::ifstream myfile;
@@ -39,6 +39,6 @@ int main(int argc, char *argv[])
 //        fc.setWindowModality(Qt::ApplicationModal);
 //        fc.show();
 //    }
->>>>>>> 7bd4473170c79a8dc4891422d2574425a4cafdec
+
     return a.exec();
 }

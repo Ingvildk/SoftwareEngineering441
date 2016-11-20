@@ -17,7 +17,7 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::on_loginButton_clicked()
 {
-    QFile file("//Users//Kayla//Documents//cs441test//testGUI//test.txt");
+    QFile file("D:\\Repo\\CS441\\SoftwareEngineering441\\testGUI\\test.txt");//change path to YOUR test.txt
                QString username = ui->userTxt->text();
                QString password = ui->passwordTxt->text();
 
@@ -36,6 +36,7 @@ void LoginWindow::on_loginButton_clicked()
 
                      if((userx.contains(username, Qt::CaseSensitive)) && (passx.contains(password, Qt::CaseSensitive))){
 
+                                 this->close();
                                  nWin = new MainWindow();
                                  nWin->setAttribute(Qt::WA_DeleteOnClose);
                                  nWin->show();
