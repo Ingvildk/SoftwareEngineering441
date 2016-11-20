@@ -19,7 +19,7 @@ Store::Store(std::string Name, std::string Address, int ID, double stax){
     name = Name;
     address = Address;
     salesTax = stax;
-    inventory = new Inventory(ID);
+    inventory = new Inventory(id);
     readEmpFile();
 }
 
@@ -35,6 +35,10 @@ Store::Store(std::string Name, std::string Address, int ID, double stax){
 //    }
 //}
 
+Store::~Store() {
+    delete inventory;
+}
+
 int Store::searchEmployee(int ID){
     for (int empIndex = 0; (unsigned)empIndex < employees.size(); empIndex++) {
         if ((employees.at(empIndex)).getId() == ID){
@@ -43,10 +47,6 @@ int Store::searchEmployee(int ID){
     }
 
     return -1;
-
-}
-
-Store::~Store(){
 
 }
 
@@ -72,6 +72,9 @@ void Store::readEmpFile(){
             getline(empFile, word);
             int Dob = atoi(word.c_str());
             employees.push_back(Employee(ID, Name, Address, Job, sal, Dob));
+            Employee temp = Employee(ID, Name, Address, Job, sal, Dob);
+            std::cout << "Display employees"<< std::endl;
+            temp.display();
         }
         empFile.close();
 
@@ -214,6 +217,15 @@ void Store::displayEmployees(){
     for(int i = 0; (unsigned)i < employees.size(); i++){
         employees.at(i).display();
     }
+}
+
+Employee Store::returnEmployee(int ID) {
+    int index = searchEmployee(ID);
+    Employee emp = employees[index];
+    setName(emp.getName());
+    setAddress(emp.getAddress());
+    setId(emp.getId());
+    return emp;
 }
 
 

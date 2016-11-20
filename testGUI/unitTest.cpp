@@ -4,6 +4,7 @@
 #include <iostream>
 using namespace std;
 int main () {
-	cout << "--------This is the testing file--------";
+	cout << "--------This is the testing file--------" << endl;
+	cout << "" << endl;
 	return 0;
 }

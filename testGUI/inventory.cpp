@@ -131,8 +131,11 @@ void Inventory::displayProducts() {
 Product Inventory::getProduct(int id) {
     int index = searchProduct(id);
 
-    if (index == -1)
-        std::cout << "There are no products matching that search term." << std::endl;
+    if (index == -1) {
+        Product p;
+        p.setID(-1);
+        return p;
+    }
     else
         return products.at(index);
 }
