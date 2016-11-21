@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     c = new Company();
+    s = new Store(1);
+    t = new Transaction(s->getSalesTax());
     ui->label_Company->setText(QString::fromStdString(c->getName()));
     delete c;
 }
@@ -16,6 +18,8 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete t;
+    delete s;
 }
 
 QString MainWindow::getVal(int digits, int current)
@@ -117,14 +121,27 @@ void MainWindow::on_pushButtonClr_clicked()
 
 void MainWindow::on_pushButtonEnter_clicked()
 {
-    ui->textBrowserTransaction->append(QString::number(ui->lcdNumber->intValue()));
+    int id = ui->lcdNumber->intValue();
+    Product p = s->getInventory().getProduct(id);
+    if (p.getID() == -1)
+        ui->textBrowserTransaction->append(QString::fromStdString("There is no product that matches this ID."));
+    else if (quantity <= 0)
+        ui->textBrowserTransaction->append(QString::fromStdString("No item added to shopping cart."));
+    else {
+        p.setQuantity(quantity);
+        t->addToCart(p);
+        quantity = 0;
+        ui->textBrowserTransaction->append(QString::number(p.getID()) + "\t" + QString::fromStdString(p.getName()) + "\t$" + QString::number(p.getPrice()) + "\t");
+    }
+
     MainWindow::on_pushButtonClr_clicked();
-    //Search for item and display all item information: item description, price, etc.
 }
+
 void MainWindow::on_pushButtonNewSale_clicked()
 {
     MainWindow::on_pushButtonClr_clicked();
     ui->textBrowserTransaction->setPlainText("");
+    t->clearCart();
 }
 
 void MainWindow::on_pushButtonQty_clicked()
@@ -132,6 +149,7 @@ void MainWindow::on_pushButtonQty_clicked()
     QString str = "[";
     str.append(QString::number(ui->lcdNumber->intValue()));
     str.append("x]");
+    quantity = ui->lcdNumber->intValue();
     ui->textBrowserTransaction->append(str);
     MainWindow::on_pushButtonClr_clicked();
 }
@@ -169,7 +187,24 @@ void MainWindow::on_pushButtonCategory1_clicked()
 
 }
 
-void MainWindow::on_pushButton_28_clicked()
+void MainWindow::on_pushButtonRemove_clicked()
 {
+    int id = ui->lcdNumber->intValue();
+    Product p = s->getInventory().getProduct(id);
+    if (p.getID() == -1)
+        ui->textBrowserTransaction->append(QString::fromStdString("There is no product that matches this ID."));
+    else if (quantity <= 0)
+        ui->textBrowserTransaction->append(QString::fromStdString("No item added to shopping cart."));
+    else {
+        p.setQuantity(quantity);
+        t->removeFromCart(p);
+        quantity = 0;
+    }
 
+    MainWindow::on_pushButtonClr_clicked();
+}
+
+void MainWindow::on_endTransaction_clicked()
+{
+    t->checkout();
 }

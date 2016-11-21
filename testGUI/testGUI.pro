@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QMAKE_CXXFLAGS += -std=gnu++11
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -24,7 +25,8 @@ SOURCES += main.cpp\
     store.cpp \
     employee.cpp \
     transaction.cpp \
-    form_company.cpp
+    form_company.cpp \
+    loginwindow.cpp
 
 HEADERS  += mainwindow.h \
     testwindow.h \
@@ -37,11 +39,13 @@ HEADERS  += mainwindow.h \
     store.h \
     employee.h \
     transaction.h \
-    form_company.h
+    form_company.h \
+    loginwindow.h
 
 FORMS    += mainwindow.ui \
     testwindow.ui \
     testwindow2.ui \
     button1_window.ui \
     testwindow3.ui \
-    form_company.ui
+    form_company.ui \
+    loginwindow.ui

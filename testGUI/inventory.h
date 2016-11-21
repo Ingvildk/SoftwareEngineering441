@@ -6,10 +6,11 @@
 
 class Inventory {
     private:
-        std::vector<Product> products;     //list of products
+        std::vector <Product> products;     //list of products
         int storeID;
         int searchProduct(std::string);
         int searchProduct (int);
+        void writeToFile();
     public:
         Inventory();
         Inventory(int);
@@ -17,7 +18,8 @@ class Inventory {
         void removeProduct (int);
         void displayProduct(int);
         void displayProducts();
-        void applySale (int);
+        void addQuantity(int, int);
+        void removeQuantity(int, int);
         Product getProduct(int);
         std::string getProductInfoAsString(int);
 };

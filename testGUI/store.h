@@ -17,7 +17,7 @@ class Store {
         double salesTax;
         int searchEmployee (int);
     public:
-        Store();
+        Store(int);
         Store(std::string Name, std::string Address, int ID, double stax);
 //        Store(int ID);
         ~Store();
@@ -30,7 +30,7 @@ class Store {
         std::string getAddress();
         int getId();
         double getSalesTax();
-        Inventory* getInventory();
+        Inventory getInventory();
         void addEmployee(int ID, const std::string Name, const std::string Address, const std::string Job, double sal, int Dob);
         void removeEmployee(int ID, std::string empName);
         void changeEmployee(int ID, std::string empName, std::string empAddress, int empDob);

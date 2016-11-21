@@ -93,4 +93,7 @@ void Transaction::checkout() {
     myfile.close();
 
     receipt += 1;
+
+    std::ofstream transaction("Transaction.txt");
+    myfile << receipt;
 }
