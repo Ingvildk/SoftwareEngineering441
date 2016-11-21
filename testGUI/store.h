@@ -17,7 +17,7 @@ class Store {
         double salesTax;
         int searchEmployee (int);
     public:
-        Store();
+        Store(int);
         Store(std::string Name, std::string Address, int ID, double stax);
 //        Store(int ID);
         ~Store();

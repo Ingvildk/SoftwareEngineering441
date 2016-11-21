@@ -6,14 +6,13 @@ Transaction::Transaction(double salesTax) {
     tax = salesTax;
     totalTax = 0;
     sum = 0;
-    QString line;
+    std::string line;
 
-    QFile myfile("D:\\Repo\\CS441\\SoftwareEngineering441\\Transaction.txt");
-    if (myfile.open(QIODevice::ReadWrite)) {
-        QTextStream in(&myfile);
-        line = in.readLine();
+    std::ifstream myfile("Transaction.txt");
+    if (myfile.is_open()) {
+        getline(myfile, line);
         if (line != "")
-            receipt = stoi(line.toStdString());
+            receipt = stoi(line);
     }
     myfile.close();
 }
@@ -94,4 +93,7 @@ void Transaction::checkout() {
     myfile.close();
 
     receipt += 1;
+
+    std::ofstream transaction("Transaction.txt");
+    myfile << receipt;
 }

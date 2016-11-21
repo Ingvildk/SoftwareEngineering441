@@ -9,7 +9,6 @@
 #include "loginscreen.h"
 #include "form_company.h"
 #include "company.h"
-#include "inventory.h" //to be replaced by store.h
 #include "product.h"
 #include "transaction.h"
 #include "store.h"
@@ -66,12 +65,11 @@ private slots:
 
     void on_pushButtonCategory1_clicked();
 
-    void on_pushButton_28_clicked();
-
-
     void on_pushButton3_clicked();
 
     void on_pushButtonRemove_clicked();
+
+    void on_endTransaction_clicked();
 
 private:
     Ui::MainWindow *ui;
@@ -81,10 +79,9 @@ private:
     testwindow3 *tw3;
     LoginScreen *ls;
     Company *c;
-    Inventory *i; //Store *s;
     Transaction *t;
     Store *s;
-    int quantity;
+    int quantity = 0;
 };
 
 #endif // MAINWINDOW_H

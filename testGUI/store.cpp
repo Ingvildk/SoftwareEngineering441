@@ -6,8 +6,8 @@
 
 //using namespace std;
 
-Store::Store(){
-    id = 0;
+Store::Store(int storeID){
+    id = storeID;
     salesTax = 0.0;
     inventory = new Inventory(id);
     readEmpFile();

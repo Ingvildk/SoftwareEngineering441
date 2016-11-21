@@ -17,7 +17,7 @@ LoginWindow::~LoginWindow()
 
 void LoginWindow::on_loginButton_clicked()
 {
-    QFile file("D:\\Repo\\CS441\\SoftwareEngineering441\\testGUI\\test.txt");//change path to YOUR test.txt
+    QFile file("test.txt");//change path to YOUR test.txt
                QString username = ui->userTxt->text();
                QString password = ui->passwordTxt->text();
 
