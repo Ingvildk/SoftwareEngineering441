@@ -3,7 +3,6 @@
 
 #include <QDialog>
 #include <QString>
-#include "inventory.h"
 #include "store.h"
 
 namespace Ui {
@@ -23,12 +22,11 @@ private slots:
 
     void on_pushButtonAddItem_clicked();
 
-    void on_tableWidget_activated(const QModelIndex &index);
+    void on_pushButtonEditItem_clicked();
 
 private:
     Ui::testwindow2 *ui;
-    void fillTable();
-    Inventory *inv;
+    Store *s;
 };
 
 #endif // TESTWINDOW2_H

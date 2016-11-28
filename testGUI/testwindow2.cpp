@@ -6,7 +6,7 @@ testwindow2::testwindow2(QWidget *parent) :
     ui(new Ui::testwindow2)
 {
     ui->setupUi(this);
-    //fillTable();
+    s = new Store(1);
 }
 
 testwindow2::~testwindow2()
@@ -14,27 +14,33 @@ testwindow2::~testwindow2()
     delete ui;
 }
 
-void testwindow2::fillTable()
-{
-    //Load Table Here based on Store ID number, then uncomment the fillTable() call inside the constructor.
-}
-
 void testwindow2::on_pushButtonLoadInventory_clicked()
 {
-    QString tempstr;
-    inv = new Inventory(1);
-    inv->addProduct(123456, "Toilet Paper", "Charmin", "Sundries", 100, 15.99, 18.99);
-    tempstr = QString::fromStdString(inv->getProductInfoAsString(123456));
-    ui->textBrowser->append(tempstr);//parameter = const QString &text
-    delete(inv);
+    QString tempstr = QString::fromStdString(s->getInventory().getProductInfoAsString(ui->input_ID->toPlainText().toInt()));
+    ui->show_Inventory->append(tempstr);
 }
 
 void testwindow2::on_pushButtonAddItem_clicked()
 {
-    //new window to add a new item number.  Create a form for the user to fill out to get necessary data.
+    s->getInventory().addProduct(ui->input_ID->toPlainText().toInt(),
+        ui->input_Name->toPlainText().toStdString(),
+        ui->input_Brand->toPlainText().toStdString(),
+        ui->input_Dept->toPlainText().toStdString(),
+        ui->input_Qty->toPlainText().toInt(),
+        ui->input_Msrp->toPlainText().toDouble(),
+        ui->input_Price->toPlainText().toDouble());
+
+    ui->input_ID->clear();
+    ui->input_Name->clear();
+    ui->input_Brand->clear();
+    ui->input_Dept->clear();
+    ui->input_Qty->clear();
+    ui->input_Msrp->clear();
+    ui->input_Price->clear();
 }
 
-void testwindow2::on_tableWidget_activated(const QModelIndex &index)
+void testwindow2::on_pushButtonEditItem_clicked()
 {
-
+    s->getInventory().removeProduct(ui->input_ID->toPlainText().toInt());
+    on_pushButtonAddItem_clicked();
 }
