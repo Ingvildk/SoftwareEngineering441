@@ -2,6 +2,8 @@
 #define TESTWINDOW3_H
 
 #include <QDialog>
+#include <QString>
+#include "store.h"
 
 namespace Ui {
 class testwindow3;
@@ -20,10 +22,9 @@ private slots:
     void on_fireButton_clicked();
     void on_hireButton_clicked();
 
-    //void on_hireButton_clicked();
-
 private:
     Ui::testwindow3 *ui;
+    Store *s;
 
 };
 
