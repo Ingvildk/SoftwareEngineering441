@@ -12,6 +12,7 @@ testwindow2::testwindow2(QWidget *parent) :
 testwindow2::~testwindow2()
 {
     delete ui;
+    delete s;
 }
 
 void testwindow2::on_pushButtonLoadInventory_clicked()
