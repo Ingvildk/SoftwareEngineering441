@@ -125,8 +125,14 @@ void MainWindow::on_pushButtonEnter_clicked()
     Product p = s->getInventory().getProduct(id);
     if (p.getID() == -1)
         ui->textBrowserTransaction->append(QString::fromStdString("There is no product that matches this ID."));
-    else if (quantity <= 0)
-        ui->textBrowserTransaction->append(QString::fromStdString("No item added to shopping cart."));
+    else if (quantity <= 0){
+        //ui->textBrowserTransaction->append(QString::fromStdString("No item added to shopping cart."));
+        quantity = 1;
+        p.setQuantity(quantity);
+        t->addToCart(p);
+        quantity = 0;
+        ui->textBrowserTransaction->append(QString::number(p.getID()) + "\t" + QString::fromStdString(p.getName()) + "\t$" + QString::number(p.getPrice()) + "\t");
+    }
     else {
         p.setQuantity(quantity);
         t->addToCart(p);
@@ -193,8 +199,13 @@ void MainWindow::on_pushButtonRemove_clicked()
     Product p = s->getInventory().getProduct(id);
     if (p.getID() == -1)
         ui->textBrowserTransaction->append(QString::fromStdString("There is no product that matches this ID."));
-    else if (quantity <= 0)
-        ui->textBrowserTransaction->append(QString::fromStdString("No item added to shopping cart."));
+    else if (quantity <= 0){
+        //ui->textBrowserTransaction->append(QString::fromStdString("No item added to shopping cart."));
+        quantity = 1;
+        p.setQuantity(quantity);
+        t->removeFromCart(p);
+        quantity = 0;
+    }
     else {
         p.setQuantity(quantity);
         t->removeFromCart(p);
@@ -207,4 +218,5 @@ void MainWindow::on_pushButtonRemove_clicked()
 void MainWindow::on_endTransaction_clicked()
 {
     t->checkout();
+    MainWindow::on_pushButtonNewSale_clicked();
 }
