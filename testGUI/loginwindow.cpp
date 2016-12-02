@@ -26,16 +26,19 @@ void LoginWindow::on_loginButton_clicked()
                   QTextStream in(&file);
                   while (!in.atEnd())
                   {
-                     QString line = in.readLine();
+                     QString line = in.readLine();      // read line by line from text file
 
-                     quint32 offset = 2;
-                     QString userx= line.left(offset);
-                     QString passx = line.mid(offset);
+                     quint32 offset = 3;                // creating the offset of size three for user name because username is the size of 3 char
+                     QString userx= line.left(offset);      // take the first 3 char from text file and store in userx
+                     QString passx = line.mid(4);           // take 4 char from text for password
 
 
-
-                     if((userx.contains(username, Qt::CaseSensitive)) && (passx.contains(password, Qt::CaseSensitive))){
-
+                        // if loop conditions:
+                        //                          userx from text  is equal to the username entered
+                        //                          passx from text is equal to the password entered
+                     //                             userx lenght is equal to the username entered length
+                     //                             passx lenght is equal to the password entered length
+                     if((userx.contains(username, Qt::CaseSensitive)) && (passx.contains(password, Qt::CaseSensitive)) && (userx.length() == username.length()) && (passx.length() == password.length())){
                                  this->close();
                                  nWin = new MainWindow();
                                  nWin->setAttribute(Qt::WA_DeleteOnClose);
