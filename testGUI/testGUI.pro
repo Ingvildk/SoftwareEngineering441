@@ -16,7 +16,6 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     testwindow.cpp \
-    testwindow2.cpp \
     button1_window.cpp \
     testwindow3.cpp \
     product.cpp \
@@ -26,7 +25,9 @@ SOURCES += main.cpp\
     employee.cpp \
     transaction.cpp \
     form_company.cpp \
-    loginwindow.cpp
+    loginwindow.cpp \
+    testwindow2.cpp \
+    subject.cpp
 
 HEADERS  += mainwindow.h \
     testwindow.h \
@@ -40,7 +41,9 @@ HEADERS  += mainwindow.h \
     employee.h \
     transaction.h \
     form_company.h \
-    loginwindow.h
+    loginwindow.h \
+    observer.h \
+    subject.h
 
 FORMS    += mainwindow.ui \
     testwindow.ui \
