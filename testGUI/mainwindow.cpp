@@ -220,3 +220,9 @@ void MainWindow::on_endTransaction_clicked()
     t->checkout();
     MainWindow::on_pushButtonNewSale_clicked();
 }
+
+void MainWindow::on_actionLogout_triggered()
+{
+    this->close();
+    QProcess::startDetached(QApplication::arguments()[0], QApplication::arguments());
+}

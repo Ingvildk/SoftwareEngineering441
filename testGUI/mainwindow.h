@@ -2,11 +2,11 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QProcess>
 #include "testwindow.h"
 #include "testwindow2.h"
 #include "button1_window.h"
 #include "testwindow3.h"
-#include "loginscreen.h"
 #include "form_company.h"
 #include "company.h"
 #include "product.h"
@@ -71,13 +71,14 @@ private slots:
 
     void on_endTransaction_clicked();
 
+    void on_actionLogout_triggered();
+
 private:
     Ui::MainWindow *ui;
     testwindow *tw;
     testwindow2 *tw2;
     button1_window *bw1;
     testwindow3 *tw3;
-    LoginScreen *ls;
     Company *c;
     Transaction *t;
     Store *s;

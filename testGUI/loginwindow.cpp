@@ -43,19 +43,19 @@ void LoginWindow::on_loginButton_clicked()
                                  nWin = new MainWindow();
                                  nWin->setAttribute(Qt::WA_DeleteOnClose);
                                  nWin->show();
-                                     std::ifstream myfile;
-                                     myfile.open("company.txt");
-                                     //possible listener for this if statement. Currently does not work to serve as file detection -Dennis
-                                     if(myfile.is_open()){
-                                         myfile.close();
-                                     }
-                                     else{
-                                         form_company fc;
-                                         Qt::WindowFlags flags = fc.windowFlags();
-                                         fc.setWindowFlags(flags | Qt::WindowStaysOnTopHint);
-                                         fc.setWindowModality(Qt::ApplicationModal);
-                                         fc.show();
-                                     }
+//                                     std::ifstream myfile;
+//                                     myfile.open("company.txt");
+//                                     //possible listener for this if statement. Currently does not work to serve as file detection -Dennis
+//                                     if(myfile.is_open()){
+//                                         myfile.close();
+//                                     }
+//                                     else{
+//                                         form_company fc;
+//                                         Qt::WindowFlags flags = fc.windowFlags();
+//                                         fc.setWindowFlags(flags | Qt::WindowStaysOnTopHint);
+//                                         fc.setWindowModality(Qt::ApplicationModal);
+//                                         fc.show();
+//                                     }
                      }
                      else{
                          ui->loginLabel->setText(("Incorrect user or password"));
