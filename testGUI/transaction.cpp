@@ -52,8 +52,11 @@ void Transaction::removeFromCart(Product p) {
 
     if (index == -1)
         return;
-    else if (shoppingCart.at(index).getQuantity() - p.getQuantity() <= 0)
+    else if (shoppingCart.at(index).getQuantity() - p.getQuantity() <= 0){
         shoppingCart.erase(shoppingCart.begin() + index);
+        sum = 0;
+        totalTax = 0;
+    }
     else {
         int q1 = shoppingCart.at(index).getQuantity();
         int q2 = p.getQuantity();
