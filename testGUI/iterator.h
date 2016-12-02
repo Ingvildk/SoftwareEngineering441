@@ -7,7 +7,7 @@
 #include "product.h"
 
 
-using namespace std;
+//using namespace std;
 
 class Iterator{
 	private:
@@ -18,12 +18,12 @@ class Iterator{
 		int EmpIndex;
 		int ProductIndex;
 
-		string InvFile;
-		string EmpFile;
-		string StoreFile;
-	 	vector <Employee> employees;  
-		vector <Store> stores;
-		vector <Product> products;
+		std::string InvFile;
+		std::string EmpFile;
+		std::string StoreFile;
+	 	std::vector <Employee> employees;  
+		std::vector <Store> stores;
+		std::vector <Product> products;
 		
 
 	public:

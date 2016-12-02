@@ -7,41 +7,41 @@
 #include <vector>
 #include <fstream>
 
-using namespace std;
+//using namespace std;
 
 class Company {
     private:
         //vector <Employee> employees;   //list of employees
         //vector <Store> stores;         //list of stores
-        string name;                       //name of company
-        string address;                    //current address of company
+        std::string name;                       //name of company
+        std::string address;                    //current address of company
         int ID;
         Iterator I;
         //void searchStore(string Name);
     public:
-        Company(string Name, string Address, int Id);
+        Company(std::string Name, std::string Address, int Id);
         Company();
         //~Company();
-        string getName() { return name; }
-        string getAddress() { return address; }
-        void addStore(string Name, string Address, int Id, double Stax);
-        void removeStore(string Name);
-        void changeStore(string Name, string Address, int Id);
-        void displayStore(string Name);
+        std::string getName() { return name; }
+        std::string getAddress() { return address; }
+        void addStore(std::string Name, std::string Address, int Id, double Stax);
+        void removeStore(std::string Name);
+        void changeStore(std::string Name, std::string Address, int Id);
+        void displayStore(std::string Name);
         void displayStores();
-        void addEmployee(int ID, string Name, string Address, string Job, double Sal, int DOB);
-        void removeEmployee(string Name);
+        void addEmployee(int ID, std::string Name, std::string Address, std::string Job, double Sal, int DOB);
+        void removeEmployee(std::string Name);
         //void changeEmployee(string, string, double);
-        void displayEmployee(string Name);
+        void displayEmployee(std::string Name);
         void displayEmployees();
-        void setName(string Name);
-        void setAddress(string Address);
+        void setName(std::string Name);
+        void setAddress(std::string Address);
         void setId(int id);
         int getId();
-        int cSearchStore(string Name);
-        int cSearchEmployee(string Name);
+        int cSearchStore(std::string Name);
+        int cSearchEmployee(std::string Name);
         void displayCompany();
-        void changeEmployee(string Name,string Job, string Address, double Hours);
+        void changeEmployee(std::string Name,std::string Job, std::string Address, double Hours);
         int employeeSize();
         void readEmpFile();
         void readinStores();
