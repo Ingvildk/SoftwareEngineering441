@@ -1,20 +1,24 @@
-#include "subject.h"
+//#include "subject.h"
 
-Subject::Subject()
-{
+//Subject::Subject()
+//{
 
-}
+//}
 
-void Subject::Attach (Observer* o){
-    _observers->Append(o);
-}
+//void Subject::Attach (Product *qty){
+//    _inv.push_back(qty);
+//}
 
-void Subject::Detach (Observer* o){
-    _observers->Remove(o);
-}
+//void Subject::Detach (Product *qty){
+//    //_inv.erase(std::find(_inv.begin(), _inv.end(), qty));
+//}
 
-void Subject::Notify(){
-    ListIterator<Observer*> i(_observers);
-    for(i.First(); !i.IsDone(); i.Next())
-        i.CurrentItem()->Update(this);
-}
+//void Subject::Notify(int total){
+//    for(std::vector<Product*>::const_iterator iter = _inv.begin(); iter != _inv.end(); ++iter)
+//    {
+//        if(*iter != 0)
+//        {
+//            //(*iter)->Update(total);
+//        }
+//    }
+//}

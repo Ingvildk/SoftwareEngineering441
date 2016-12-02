@@ -9,8 +9,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     c = new Company();
-    s = new Store(1);
-    t = new Transaction(s->getSalesTax());
+    t = new Transaction(Store::Instance()->getSalesTax());
     ui->label_Company->setText(QString::fromStdString(c->getName()));
     ui->label_Store->setText(QString::fromStdString(c->getAddress()));
     ui->label_DateTime->setText(QDateTime::currentDateTime().toString());
@@ -21,7 +20,7 @@ MainWindow::~MainWindow()
     delete c;
     delete ui;
     delete t;
-    delete s;
+    //delete s;
 }
 
 QString MainWindow::getVal(int digits, int current)
@@ -124,7 +123,7 @@ void MainWindow::on_pushButtonClr_clicked()
 void MainWindow::on_pushButtonEnter_clicked()
 {
     int id = ui->lcdNumber->intValue();
-    Product p = s->getInventory().getProduct(id);
+    Product p = Store::Instance()->getInventory().getProduct(id);
     if (p.getID() == -1)
         ui->textBrowserTransaction->append(QString::fromStdString("There is no product that matches this ID."));
     else if (quantity <= 0){
@@ -147,8 +146,7 @@ void MainWindow::on_pushButtonEnter_clicked()
 
 void MainWindow::on_pushButtonNewSale_clicked()
 {
-    delete s;
-    s = new Store(1);
+    Store::ResetInstance();
     MainWindow::on_pushButtonClr_clicked();
     ui->textBrowserTransaction->setPlainText("");
     t->clearCart();
@@ -200,7 +198,7 @@ void MainWindow::on_pushButtonCategory1_clicked()
 void MainWindow::on_pushButtonRemove_clicked()
 {
     int id = ui->lcdNumber->intValue();
-    Product p = s->getInventory().getProduct(id);
+    Product p = Store::Instance()->getInventory().getProduct(id);
     if (p.getID() == -1)
         ui->textBrowserTransaction->append(QString::fromStdString("There is no product that matches this ID."));
     else if (quantity <= 0){

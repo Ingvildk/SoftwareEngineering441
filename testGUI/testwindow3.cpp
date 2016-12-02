@@ -7,7 +7,7 @@ testwindow3::testwindow3(QWidget *parent) :
     ui(new Ui::testwindow3)
 {
     ui->setupUi(this);
-    s = new Store(1);
+    //s = new Store(1);
 }
 
 int ID = 0;
@@ -15,11 +15,11 @@ int ID = 0;
 testwindow3::~testwindow3()
 {
     delete ui;
-    delete s;
+    //delete s;
 }
 void testwindow3::on_fireButton_clicked()
 {
-    s->removeEmployee(ui->input_ID->toPlainText().toInt(), ui->input_Name->toPlainText().toStdString());
+    Store::Instance()->removeEmployee(ui->input_ID->toPlainText().toInt(), ui->input_Name->toPlainText().toStdString());
 
     ui->input_ID->clear();
     ui->input_Name->clear();
@@ -32,7 +32,7 @@ void testwindow3::on_fireButton_clicked()
 
 void testwindow3::on_hireButton_clicked()
 {
-    s->addEmployee(
+    Store::Instance()->addEmployee(
                 ui->input_ID->toPlainText().toInt(),
                 ui->input_Name->toPlainText().toStdString(),
                 ui->input_Address->toPlainText().toStdString(),

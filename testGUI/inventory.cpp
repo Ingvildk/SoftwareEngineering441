@@ -37,6 +37,10 @@ Inventory::Inventory(int store) {
     }
 }
 
+//void Inventory::ChangeTotal(int total){
+//    Notify(total);
+//}
+
 int Inventory::searchProduct(std::string s) {
     for (int i = 0; (unsigned)i < products.size(); i++) {
         if ((products.at(i)).getName() == s)

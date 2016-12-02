@@ -3,8 +3,9 @@
 #include "product.h"
 #include <vector>
 #include <string>
+#include "subject.h"
 
-class Inventory {
+class Inventory{
     private:
         std::vector <Product> products;     //list of products
         int storeID;
@@ -12,6 +13,7 @@ class Inventory {
         int searchProduct (int);
         void writeToFile();
     public:
+        void ChangeTotal(int total);
         Inventory();
         Inventory(int);
         void addProduct (int, std::string, std::string, std::string, int, double, double);

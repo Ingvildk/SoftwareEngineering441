@@ -1,18 +1,23 @@
-#ifndef SUBJECT_H
-#define SUBJECT_H
+//#ifndef SUBJECT_H
+//#define SUBJECT_H
 
+//#include "observer.h"
+//#include <list>
+//#include <vector>
+//#include "product.h"
 
-class Subject
-{
-public:
-    virtual ~Subject();
-    virtual void Attach (Observer*);
-    virtual void Detach (Observer*);
-    virtual void Notify();
-protected:
-    Subject();
-private:
-    List<Observer*> *_observers;
-};
+//class Subject
+//{
 
-#endif // SUBJECT_H
+//public:
+//    virtual ~Subject();
+//    virtual void Attach(Product *qty);
+//    virtual void Detach(Product *qty);
+//    virtual void Notify(int total);
+//protected:
+//    Subject();
+//private:
+//    std::vector<Product*> _inv;
+//};
+
+//#endif // SUBJECT_H

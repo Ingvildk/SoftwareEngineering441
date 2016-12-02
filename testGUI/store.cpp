@@ -6,6 +6,19 @@
 
 //using namespace std;
 
+Store* Store::_instance = 0;
+
+void Store::ResetInstance(){
+    delete _instance;
+    _instance = NULL;
+}
+
+Store* Store::Instance(){
+    if(_instance == 0)
+        _instance = new Store(1);
+    return _instance;
+}
+
 Store::Store(int storeID){
     id = storeID;
     salesTax = 0.0;

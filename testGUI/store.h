@@ -9,6 +9,7 @@
 
 class Store {
     private:
+        static Store* _instance;
         std::vector <Employee> employees;   //list of employees
         Inventory *inventory;               //inventory for the store
         std::string name;                         //name of store
@@ -16,8 +17,12 @@ class Store {
         int id;                             //id of store
         double salesTax;
         int searchEmployee (int);
-    public:
+    protected:
         Store(int);
+    public:
+        static Store* Instance();
+        static void ResetInstance();
+        //Store(int);
         Store(std::string Name, std::string Address, int ID, double stax);
 //        Store(int ID);
         ~Store();

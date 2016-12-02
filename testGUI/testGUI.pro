@@ -27,7 +27,10 @@ SOURCES += main.cpp\
     form_company.cpp \
     loginwindow.cpp \
     testwindow2.cpp \
-    subject.cpp
+    subject.cpp \
+    listiterator.cpp \
+    list.cpp \
+    buttons.cpp
 
 HEADERS  += mainwindow.h \
     testwindow.h \
@@ -43,7 +46,12 @@ HEADERS  += mainwindow.h \
     form_company.h \
     loginwindow.h \
     observer.h \
-    subject.h
+    subject.h \
+    iterator.h \
+    abstractaggregate.h \
+    list.h \
+    listiterator.h \
+    buttons.h
 
 FORMS    += mainwindow.ui \
     testwindow.ui \

@@ -13,6 +13,7 @@
 #include "product.h"
 #include "transaction.h"
 #include "store.h"
+#include "buttons.h"
 
 namespace Ui {
 class MainWindow;
