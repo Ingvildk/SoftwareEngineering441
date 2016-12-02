@@ -874,9 +874,9 @@
     <widget class="QLabel" name="label_DateTime">
      <property name="geometry">
       <rect>
-       <x>150</x>
-       <y>10</y>
-       <width>161</width>
+       <x>10</x>
+       <y>50</y>
+       <width>221</width>
        <height>21</height>
       </rect>
      </property>
@@ -886,25 +886,7 @@
       </font>
      </property>
      <property name="text">
-      <string>10/28/16     9:46PM</string>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_User">
-     <property name="geometry">
-      <rect>
-       <x>10</x>
-       <y>50</y>
-       <width>181</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>10</pointsize>
-      </font>
-     </property>
-     <property name="text">
-      <string>User:  Dennis</string>
+      <string>Date     Time</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_Store">
@@ -922,20 +904,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Store Info: Location, Phone</string>
-     </property>
-    </widget>
-    <widget class="QToolButton" name="toolButton">
-     <property name="geometry">
-      <rect>
-       <x>280</x>
-       <y>50</y>
-       <width>27</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>...</string>
+      <string>Store Info: Location</string>
      </property>
     </widget>
     <widget class="QLabel" name="label_Company">
@@ -953,7 +922,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Company</string>
+      <string>Company Name</string>
      </property>
     </widget>
    </widget>

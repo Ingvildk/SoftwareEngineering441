@@ -164,3 +164,19 @@ std::string Inventory::getProductInfoAsString(int id){
         return tempstr;
     }
 }
+
+int Inventory::sizeOfInventory(){
+    return (products.size());
+}
+
+void Inventory::getAllProductsInfoAsString(std::string* buff, int n){
+    for(int i = 0; i < n; i++){
+        buff[(i*7)] = std::to_string((products.at(i)).getID());
+        buff[(i*7)+1] = (products.at(i)).getName();
+        buff[(i*7)+2] = (products.at(i)).getBrand();
+        buff[(i*7)+3] = (products.at(i)).getDept();
+        buff[(i*7)+4] = std::to_string((products.at(i)).getQuantity());
+        buff[(i*7)+5] = std::to_string((products.at(i)).getMsrp());
+        buff[(i*7)+6] = std::to_string((products.at(i)).getPrice());
+    }
+}

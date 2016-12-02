@@ -18,7 +18,7 @@ public:
     ~testwindow2();
 
 private slots:
-    void on_pushButtonLoadInventory_clicked();
+    void LoadInventory();
 
     void on_pushButtonAddItem_clicked();
 

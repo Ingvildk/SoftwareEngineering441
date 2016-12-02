@@ -12,11 +12,13 @@ MainWindow::MainWindow(QWidget *parent) :
     s = new Store(1);
     t = new Transaction(s->getSalesTax());
     ui->label_Company->setText(QString::fromStdString(c->getName()));
-    delete c;
+    ui->label_Store->setText(QString::fromStdString(c->getAddress()));
+    ui->label_DateTime->setText(QDateTime::currentDateTime().toString());
 }
 
 MainWindow::~MainWindow()
 {
+    delete c;
     delete ui;
     delete t;
     delete s;
@@ -145,6 +147,8 @@ void MainWindow::on_pushButtonEnter_clicked()
 
 void MainWindow::on_pushButtonNewSale_clicked()
 {
+    delete s;
+    s = new Store(1);
     MainWindow::on_pushButtonClr_clicked();
     ui->textBrowserTransaction->setPlainText("");
     t->clearCart();

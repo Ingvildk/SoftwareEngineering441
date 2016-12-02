@@ -13,7 +13,6 @@ Store::Store(int storeID){
     readEmpFile();
 }
 
-
 Store::Store(std::string Name, std::string Address, int ID, double stax){
     id = ID;
     name = Name;

@@ -22,6 +22,8 @@ class Inventory {
         void removeQuantity(int, int);
         Product getProduct(int);
         std::string getProductInfoAsString(int);
+        void getAllProductsInfoAsString(std::string*, int);
+        int sizeOfInventory();
 };
 
 #endif
