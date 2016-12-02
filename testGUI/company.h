@@ -3,7 +3,6 @@
 #include <string>
 #include "employee.h"
 #include "store.h"
-#include "iterator.h"
 #include <vector>
 #include <fstream>
 
@@ -11,13 +10,12 @@
 
 class Company {
     private:
-        //vector <Employee> employees;   //list of employees
-        //vector <Store> stores;         //list of stores
+        std::vector<Employee> employees;   //list of employees
+        std::vector<Store> stores;         //list of stores
         std::string name;                       //name of company
         std::string address;                    //current address of company
         int ID;
-        Iterator I;
-        //void searchStore(string Name);
+        //void searchStore(std::string Name);
     public:
         Company(std::string Name, std::string Address, int Id);
         Company();
@@ -31,7 +29,7 @@ class Company {
         void displayStores();
         void addEmployee(int ID, std::string Name, std::string Address, std::string Job, double Sal, int DOB);
         void removeEmployee(std::string Name);
-        //void changeEmployee(string, string, double);
+        //void changeEmployee(std::string, std::string, double);
         void displayEmployee(std::string Name);
         void displayEmployees();
         void setName(std::string Name);

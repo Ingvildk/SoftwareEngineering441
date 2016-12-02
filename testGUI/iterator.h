@@ -1,37 +1,43 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-#include <stdio.h>
 #include "store.h"
 #include "employee.h"
 #include "product.h"
 
+/**
+example of how to use this class in other files :
+	iterator stores;
+	stores.loadStores();
+	while(stores.hasNextStore()){
+		Store& S;
+		S = stores.getNextStore();
+		//check / modify / ect	
+	}
+	stores.saveStores();
+*/
 
-//using namespace std;
+using namespace std;
 
 class Iterator{
 	private:
-		std::ifstream fin;
-		std::ofstream fout;
+		ifstream fin;
+		ofstream fout;
 		
 		int StoreIndex;
 		int EmpIndex;
 		int ProductIndex;
 
-		std::string InvFile;
-		std::string EmpFile;
-		std::string StoreFile;
-	 	std::vector <Employee> employees;  
-		std::vector <Store> stores;
-		std::vector <Product> products;
-		
-
+		string InvFile;
+		string EmpFile;
+		string StoreFile;
+	 	vector <Employee> employees;  
+		vector <Store> stores;
+		vector <Product> products;
 	public:
 		Iterator();
 		~Iterator();
-		void beginStore();
-		void beginEmp();
-		void beginProduct();
+		
 		//store iterator
 		void loadStores();//read in file and assign to vector
 		Store& getNextStore();
@@ -39,7 +45,6 @@ class Iterator{
 		void removeStore(Store S);
 		void addStore(Store S);
 		void saveStores();//updates txt with current vector contents
-		
 
 		//employee iterator
 		void loadEmps();//read in file and assign to vector

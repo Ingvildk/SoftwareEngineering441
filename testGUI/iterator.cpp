@@ -26,20 +26,7 @@ Iterator::~Iterator(){
 	ProductIndex = 0;
 }
 
-void Iterator::beginStore(){
-	StoreIndex = 0;
-}
-
-void Iterator::beginProduct(){
-	ProductIndex = 0;
-}
-
-void Iterator::beginEmp(){
-	EmpIndex = 0;
-}
-
 void Iterator::loadStores(){
-	stores.clear();
 	string name;
 	string address;
 	string idNum;
@@ -71,12 +58,12 @@ void Iterator::loadStores(){
 }
 
 Store& Iterator::getNextStore(){
-	return stores.at(StoreIndex++);
+	StoreIndex++;
+	return stores.at(StoreIndex);
 }
 
 bool Iterator::hasNextStore(){
-
-	if(StoreIndex >= stores.size()){
+	if(StoreIndex == stores.size()){
 		return false;
 	}
 	return true;
@@ -95,11 +82,8 @@ void Iterator::addStore(Store S){
 }
 
 void Iterator::saveStores(){
-
-	if(remove("stores.txt") != 0){
-		cerr << "error deleting the file" << endl;
-	}
-	fout.open("stores.txt",std::ios::app);
+	fout.open("stores.txt", std::ios::app);
+	
 	for(int i = 0; i < stores.size();i++){
 		fout << stores.at(i).getName() << "\n";
 		fout << stores.at(i).getAddress() << "\n";
@@ -110,37 +94,40 @@ void Iterator::saveStores(){
 }
 
 void Iterator::loadEmps(){
-	employees.clear();
 	string Name;
 	string Address;
 	string Job;
 	string word("");
+	ifstream empFile("employee.txt");
 
-	fin.open("employee.txt");
-
-	if(fin.is_open()){
-		while(!fin.eof()){
+	if(!empFile.is_open()){
+		cout << "There is no such file to READ\n" << endl;
+		exit(EXIT_FAILURE);
+	}else{
+		while(getline(empFile, word)){
 			int ID = atoi(word.c_str());
-			getline(fin, Name);
-			getline(fin, Address);
-			getline(fin, Job);
-			getline(fin, word);
+			getline(empFile, Name);
+			getline(empFile, Address);
+			getline(empFile, Job);
+			getline(empFile, word);
 			double sal = atof(word.c_str());
-			getline(fin, word);
+			getline(empFile, word);
 			int Dob = atoi(word.c_str());
 			employees.push_back(Employee(ID, Name, Address, Job, sal, Dob));
 		}
-		fin.close();
+		empFile.close();
+
 	}
-	
+
 }
 
 Employee& Iterator::getNextEmp(){
-	return employees.at(EmpIndex++);
+	EmpIndex++;
+	return employees.at(EmpIndex);
 }
 
 bool Iterator::hasNextEmp(){
-	if(EmpIndex >= employees.size()){
+	if(EmpIndex == employees.size()){
 		return false;
 	}
 	return true;
@@ -156,15 +143,12 @@ void Iterator::removeEmp(Employee E){
 
 void Iterator::addEmp(Employee E){
 	employees.push_back(E);
-	cout << employees.size() << endl;
 }
 
 void Iterator::saveEmps(){
-	if(remove("employees.txt") != 0){
-		cerr << "error deleting the file" << endl;
-	}
-	fout.open("employees.txt",std::ios::app);
-	for(int i = 0; i < employees.size();i++){
+	fout.open("employees.txt", std::ios::app);
+	
+	for(int i = 0; i < employees.size(); i++){
 		fout << std::to_string(employees.at(i).getId()) << "\n";
 		fout << employees.at(i).getName() << "\n";
 		fout << employees.at(i).getAddress() << "\n";
@@ -172,11 +156,11 @@ void Iterator::saveEmps(){
 		fout << std::to_string(employees.at(i).getSalary()) << "\n";
 		fout << std::to_string(employees.at(i).getDob()) << "\n";
 	}
+	
 	fout.close();
 }
 
 void Iterator::loadProducts(){
-	products.clear();
 	ifstream myfile("Inventory.txt");
 	string line;
 	int id;
@@ -211,11 +195,12 @@ void Iterator::loadProducts(){
 }
 
 Product& Iterator::getNextProduct(){
-	return products.at(ProductIndex++);
+	ProductIndex++;
+	return products.at(ProductIndex);
 }
 
 bool Iterator::hasNextProduct(){
-	if(ProductIndex >= products.size()){
+	if(ProductIndex == products.size()){
 		return false;
 	}
 	return true;
@@ -234,11 +219,7 @@ void Iterator::addProduct(Product P){
 }
 
 void Iterator::saveProducts(){
-	if(remove("inventory.txt") != 0){
-		cerr << "error deleting the file" << endl;
-	}
-	fout.open("inventory.txt",std::ios::app);
-
+	fout.open(InvFile);
 	
 	for(int i = 0; i < products.size(); i++){
 		fout << (products.at(i)).getID() << "\n";
